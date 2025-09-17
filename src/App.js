@@ -18,6 +18,30 @@ const translations = {
     notfound: "Page Not Found",
     backhome: "Back to Home"
   },
+  zh: {
+    skip: "跳到主要内容",
+    testimonials: "合作伙伴评价",
+    team: "团队介绍",
+    clients: "我们的客户与合作伙伴",
+    contact: "联系",
+    feedback: "反馈",
+    print: "打印提案",
+    sitemap: "网站地图",
+    notfound: "页面未找到",
+    backhome: "返回首页"
+  },
+  hi: {
+    skip: "मुख्य सामग्री पर जाएं",
+    testimonials: "हमारे साझेदार क्या कहते हैं",
+    team: "टीम से मिलें",
+    clients: "हमारे ग्राहक और साझेदार",
+    contact: "संपर्क करें",
+    feedback: "प्रतिक्रिया",
+    print: "प्रस्ताव प्रिंट करें",
+    sitemap: "साइटमैप",
+    notfound: "पृष्ठ नहीं मिला",
+    backhome: "मुख्य पृष्ठ पर लौटें"
+  },
   es: {
     skip: "Saltar al contenido principal",
     testimonials: "Lo que dicen nuestros socios",
@@ -42,6 +66,66 @@ const translations = {
     notfound: "Page non trouvée",
     backhome: "Retour à l'accueil"
   },
+  ar: {
+    skip: "انتقل إلى المحتوى الرئيسي",
+    testimonials: "ماذا يقول شركاؤنا",
+    team: "تعرف على الفريق",
+    clients: "عملاؤنا وشركاؤنا",
+    contact: "اتصل",
+    feedback: "ملاحظات",
+    print: "طباعة الاقتراح",
+    sitemap: "خريطة الموقع",
+    notfound: "الصفحة غير موجودة",
+    backhome: "العودة إلى الصفحة الرئيسية"
+  },
+  bn: {
+    skip: "প্রধান বিষয়বস্তুতে যান",
+    testimonials: "আমাদের অংশীদাররা কী বলেন",
+    team: "দলকে জানুন",
+    clients: "আমাদের ক্লায়েন্ট ও অংশীদার",
+    contact: "যোগাযোগ",
+    feedback: "প্রতিক্রিয়া",
+    print: "প্রস্তাব মুদ্রণ করুন",
+    sitemap: "সাইটম্যাপ",
+    notfound: "পৃষ্ঠা পাওয়া যায়নি",
+    backhome: "প্রধান পাতায় ফিরে যান"
+  },
+  ru: {
+    skip: "Перейти к основному содержанию",
+    testimonials: "Что говорят наши партнеры",
+    team: "Познакомьтесь с командой",
+    clients: "Наши клиенты и партнеры",
+    contact: "Контакт",
+    feedback: "Обратная связь",
+    print: "Распечатать предложение",
+    sitemap: "Карта сайта",
+    notfound: "Страница не найдена",
+    backhome: "Вернуться на главную"
+  },
+  pt: {
+    skip: "Ir para o conteúdo principal",
+    testimonials: "O que nossos parceiros dizem",
+    team: "Conheça a equipe",
+    clients: "Nossos clientes e parceiros",
+    contact: "Contato",
+    feedback: "Feedback",
+    print: "Imprimir proposta",
+    sitemap: "Mapa do site",
+    notfound: "Página não encontrada",
+    backhome: "Voltar para o início"
+  },
+  ur: {
+    skip: "مرکزی مواد پر جائیں",
+    testimonials: "ہمارے شراکت دار کیا کہتے ہیں",
+    team: "ٹیم سے ملیں",
+    clients: "ہمارے کلائنٹس اور شراکت دار",
+    contact: "رابطہ کریں",
+    feedback: "رائے",
+    print: "تجویز پرنٹ کریں",
+    sitemap: "سائٹ کا نقشہ",
+    notfound: "صفحہ نہیں ملا",
+    backhome: "مرکزی صفحہ پر واپس جائیں"
+  },
   ja: {
     skip: "メインコンテンツへスキップ",
     testimonials: "パートナーの声",
@@ -54,17 +138,125 @@ const translations = {
     notfound: "ページが見つかりません",
     backhome: "ホームに戻る"
   },
-  zh: {
-    skip: "跳到主要内容",
-    testimonials: "合作伙伴评价",
-    team: "团队介绍",
-    clients: "我们的客户与合作伙伴",
-    contact: "联系",
-    feedback: "反馈",
-    print: "打印提案",
-    sitemap: "网站地图",
-    notfound: "页面未找到",
-    backhome: "返回首页"
+  de: {
+    skip: "Zum Hauptinhalt springen",
+    testimonials: "Was unsere Partner sagen",
+    team: "Das Team kennenlernen",
+    clients: "Unsere Kunden & Partner",
+    contact: "Kontakt",
+    feedback: "Feedback",
+    print: "Vorschlag drucken",
+    sitemap: "Seitenverzeichnis",
+    notfound: "Seite nicht gefunden",
+    backhome: "Zurück zur Startseite"
+  },
+  it: {
+    skip: "Vai al contenuto principale",
+    testimonials: "Cosa dicono i nostri partner",
+    team: "Incontra il team",
+    clients: "I nostri clienti e partner",
+    contact: "Contatto",
+    feedback: "Feedback",
+    print: "Stampa proposta",
+    sitemap: "Mappa del sito",
+    notfound: "Pagina non trovata",
+    backhome: "Torna alla home"
+  },
+  nl: {
+    skip: "Ga naar hoofdinhoud",
+    testimonials: "Wat onze partners zeggen",
+    team: "Ontmoet het team",
+    clients: "Onze klanten en partners",
+    contact: "Contact",
+    feedback: "Feedback",
+    print: "Voorstel afdrukken",
+    sitemap: "Sitemap",
+    notfound: "Pagina niet gevonden",
+    backhome: "Terug naar home"
+  },
+  pl: {
+    skip: "Przejdź do głównej treści",
+    testimonials: "Co mówią nasi partnerzy",
+    team: "Poznaj zespół",
+    clients: "Nasi klienci i partnerzy",
+    contact: "Kontakt",
+    feedback: "Opinia",
+    print: "Drukuj propozycję",
+    sitemap: "Mapa strony",
+    notfound: "Strona nie znaleziona",
+    backhome: "Powrót do strony głównej"
+  },
+  tr: {
+    skip: "Ana içeriğe atla",
+    testimonials: "Ortaklarımız ne diyor",
+    team: "Takımla tanışın",
+    clients: "Müşterilerimiz ve ortaklarımız",
+    contact: "İletişim",
+    feedback: "Geri bildirim",
+    print: "Teklifi yazdır",
+    sitemap: "Site haritası",
+    notfound: "Sayfa bulunamadı",
+    backhome: "Ana sayfaya dön"
+  },
+  uk: {
+    skip: "Перейти до основного змісту",
+    testimonials: "Що кажуть наші партнери",
+    team: "Познайомтеся з командою",
+    clients: "Наші клієнти та партнери",
+    contact: "Контакт",
+    feedback: "Відгук",
+    print: "Друкувати пропозицію",
+    sitemap: "Мапа сайту",
+    notfound: "Сторінку не знайдено",
+    backhome: "Повернутися на головну"
+  },
+  ro: {
+    skip: "Sari la conținutul principal",
+    testimonials: "Ce spun partenerii noștri",
+    team: "Cunoaște echipa",
+    clients: "Clienții și partenerii noștri",
+    contact: "Contact",
+    feedback: "Feedback",
+    print: "Printează propunerea",
+    sitemap: "Harta site-ului",
+    notfound: "Pagina nu a fost găsită",
+    backhome: "Înapoi la pagina principală"
+  },
+  el: {
+    skip: "Μετάβαση στο κύριο περιεχόμενο",
+    testimonials: "Τι λένε οι συνεργάτες μας",
+    team: "Γνωρίστε την ομάδα",
+    clients: "Οι πελάτες και οι συνεργάτες μας",
+    contact: "Επικοινωνία",
+    feedback: "Ανατροφοδότηση",
+    print: "Εκτύπωση πρότασης",
+    sitemap: "Χάρτης ιστοτόπου",
+    notfound: "Η σελίδα δεν βρέθηκε",
+    backhome: "Επιστροφή στην αρχική"
+  },
+  cs: {
+    skip: "Přejít na hlavní obsah",
+    testimonials: "Co říkají naši partneři",
+    team: "Seznamte se s týmem",
+    clients: "Naši klienti a partneři",
+    contact: "Kontakt",
+    feedback: "Zpětná vazba",
+    print: "Tisknout návrh",
+    sitemap: "Mapa stránek",
+    notfound: "Stránka nenalezena",
+    backhome: "Zpět na hlavní stránku"
+  },
+  sv: {
+    skip: "Hoppa till huvudinnehåll",
+    testimonials: "Vad våra partners säger",
+    team: "Möt teamet",
+    clients: "Våra kunder och partners",
+    contact: "Kontakt",
+    feedback: "Feedback",
+    print: "Skriv ut förslag",
+    sitemap: "Webbplatskarta",
+    notfound: "Sidan hittades inte",
+    backhome: "Tillbaka till startsidan"
   }
 };
 function useLang() {
@@ -74,10 +266,26 @@ function LanguageSwitcher() {
   const { lang, setLang } = useLang();
   const langs = [
     { code: 'en', label: 'EN', native: 'English' },
+    { code: 'zh', label: '中文', native: '中文 (Chinese)' },
+    { code: 'hi', label: 'हिन्दी', native: 'हिन्दी (Hindi)' },
     { code: 'es', label: 'ES', native: 'Español' },
     { code: 'fr', label: 'FR', native: 'Français' },
-    { code: 'ja', label: '日本語', native: '日本語' },
-    { code: 'zh', label: '中文', native: '中文' }
+    { code: 'ar', label: 'العربية', native: 'العربية (Arabic)' },
+    { code: 'bn', label: 'বাংলা', native: 'বাংলা (Bengali)' },
+    { code: 'ru', label: 'РУС', native: 'Русский (Russian)' },
+    { code: 'pt', label: 'PT', native: 'Português' },
+    { code: 'ur', label: 'اردو', native: 'اردو (Urdu)' },
+    { code: 'ja', label: '日本語', native: '日本語 (Japanese)' },
+    { code: 'de', label: 'DE', native: 'Deutsch (German)' },
+    { code: 'it', label: 'IT', native: 'Italiano (Italian)' },
+    { code: 'nl', label: 'NL', native: 'Nederlands (Dutch)' },
+    { code: 'pl', label: 'PL', native: 'Polski (Polish)' },
+    { code: 'tr', label: 'TR', native: 'Türkçe (Turkish)' },
+    { code: 'uk', label: 'UK', native: 'Українська (Ukrainian)' },
+    { code: 'ro', label: 'RO', native: 'Română (Romanian)' },
+    { code: 'el', label: 'ΕΛ', native: 'Ελληνικά (Greek)' },
+    { code: 'cs', label: 'CS', native: 'Čeština (Czech)' },
+    { code: 'sv', label: 'SV', native: 'Svenska (Swedish)' }
   ];
   return (
     <nav aria-label="Language switcher" className="wf-lang-switcher">
@@ -88,6 +296,12 @@ function LanguageSwitcher() {
           aria-label={`Switch to ${l.native}`}
           lang={l.code}
           disabled={lang === l.code}
+          style={{
+            fontWeight: lang === l.code ? 'bold' : 'normal',
+            outline: lang === l.code ? '2px solid #c40404' : undefined,
+            background: lang === l.code ? 'var(--wf-red)' : undefined,
+            color: lang === l.code ? 'var(--wf-gold)' : undefined
+          }}
         >
           {l.label}
         </button>

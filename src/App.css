@@ -24,10 +24,30 @@ html {
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #f5f5f5 0%, #ffe066 100%);
+  /* Layered gradients for depth and brand feel */
+  background:
+    linear-gradient(120deg, #ffe066 0%, #fffbe6 100%) fixed,
+    repeating-linear-gradient(135deg, rgba(196,4,4,0.07) 0 40px, transparent 40px 80px),
+    linear-gradient(135deg, #f5f5f5 0%, #ffe066 100%);
   color: var(--wf-dark);
   line-height: 1.7;
   letter-spacing: 0.01em;
+  background-blend-mode: lighten, normal;
+}
+
+/* Optional: Add a subtle diagonal pattern overlay for extra polish */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.13;
+  background: repeating-linear-gradient(
+    135deg,
+    #c40404 0 2px,
+    transparent 2px 32px
+  );
 }
 
 /* Main container for flex layout */
@@ -417,6 +437,18 @@ body {
 }
 .wf-carousel-arrow.right {
   right: -18px;
+}
+
+/* Utility: Visually hidden for accessibility (e.g., ARIA live regions, alerts) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  border: 0 !important;
 }
 
 /* --- Print-friendly styles --- */

@@ -10,13 +10,13 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <meta name="robots" content="index,follow" />
-    <!-- Google Analytics (replace UA-XXXXX-Y with your ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <!-- Google Analytics (set REACT_APP_GA_ID in your environment or replace below) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_GA_ID || 'UA-XXXXX-Y'}`}></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-XXXXX-Y');
+      gtag('config', '{process.env.REACT_APP_GA_ID || "UA-XXXXX-Y"}');
     </script>
     <title>Wells Fargo Innovation Challenge</title>
     <!-- SEO and social sharing metadata -->
@@ -29,14 +29,9 @@
       body { opacity: 0; transition: opacity 0.5s; }
       body.wf-loaded { opacity: 1; }
     </style>
-    <!-- ...existing code... -->
   </head>
   <body>
-    <!-- Language Switcher (placeholder) -->
-    <nav aria-label="Language switcher" style="position:absolute;top:0.5rem;right:1rem;z-index:999;">
-      <button aria-label="Switch to English" lang="en" style="margin-right:0.5rem;">EN</button>
-      <button aria-label="Switch to Spanish" lang="es">ES</button>
-    </nav>
+    <!-- The language switcher is now handled by React. -->
     <!-- Fallback for users with JavaScript disabled -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <!-- React app root -->
@@ -47,6 +42,5 @@
         document.body.classList.add('wf-loaded');
       });
     </script>
-    <!-- ...existing code... -->
   </body>
 </html>
