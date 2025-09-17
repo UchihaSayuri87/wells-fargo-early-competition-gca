@@ -1,6 +1,19 @@
 import React from 'react';
 import './App.css';
 
+// Navigation bar component
+function NavBar() {
+  return (
+    <nav className="wf-navbar">
+      <ul>
+        <li><a href="#intro">Home</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="mailto:innovation@wellsfargo.com">Contact</a></li>
+      </ul>
+    </nav>
+  );
+}
+
 // Header: Wells Fargo logo and title
 function Header() {
   return (
@@ -104,6 +117,7 @@ function PartnersSection() {
 function App() {
   return (
     <div className="wf-container">
+      <NavBar />
       <Header />
       <main className="wf-main">
         <IntroSection />

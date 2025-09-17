@@ -49,3 +49,39 @@ Here are some ideas to help you get started or extend the project:
 - Document your changes and explain your reasoning in the Student Notes section.
 
 Feel free to come up with your own ideas and experiment!
+
+# Wells Fargo Innovation Challenge
+
+A professional, responsive React application for the Wells Fargo Innovation Challenge.
+
+## Features
+
+- Wells Fargo branding and theme
+- Responsive design for all devices
+- SEO and social metadata
+- Modular, accessible React components
+- Easy to extend for new sections or features
+
+## Setup
+
+```bash
+npm install
+npm start
+```
+
+## Project Structure
+
+- `src/App.js` — Main React app
+- `src/App.css` — App styles
+- `public/index.html` — HTML template and metadata
+- `public/wells-fargo-logo.png` — Logo asset
+
+## Customization
+
+- Add partners in `src/App.js` (`PartnersSection`)
+- Update branding in `src/App.css`
+- Add more sections/components as needed
+
+## License
+
+Proprietary — Wells Fargo internal use only.

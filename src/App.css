@@ -183,6 +183,32 @@ body {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
 }
 
+.wf-navbar {
+  background: var(--wf-red);
+  padding: 0.5rem 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.wf-navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.wf-navbar a {
+  color: var(--wf-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.wf-navbar a:focus, .wf-navbar a:hover {
+  color: var(--wf-gold);
+  outline: 2px solid var(--wf-gold);
+  outline-offset: 2px;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
   .wf-header-content {
