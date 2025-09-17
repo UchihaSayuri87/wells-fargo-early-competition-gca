@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, createContext, useContext } from 'react';
 import './App.css';
 // import { motion } from 'framer-motion'; // Uncomment if using Framer Motion
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // --- Language Context ---
 const LangContext = createContext();
@@ -412,7 +412,6 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const { lang } = useLang();
 
   // You can use Formspree, EmailJS, or a backend endpoint for real email sending.
   // Here, we'll use Formspree for demonstration.
@@ -848,35 +847,37 @@ function App() {
   );
 }
 
+export default App;
+
 // Dark mode toggle
-function DarkModeToggle({ darkMode, setDarkMode }) {
-  return (
-    <button
-      className="wf-btn wf-dark-toggle"
-      aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-      onClick={() => setDarkMode(dm => !dm)}
-    >
-      {darkMode ? "🌞 Light" : "🌙 Dark"}
-    </button>
-  );
-}
+// function DarkModeToggle({ darkMode, setDarkMode }) {
+//   return (
+//     <button
+//       className="wf-btn wf-dark-toggle"
+//       aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+//       onClick={() => setDarkMode(dm => !dm)}
+//     >
+//       {darkMode ? "🌞 Light" : "🌙 Dark"}
+//     </button>
+//   );
+// }
 
 // Cookie consent banner
-function CookieConsent() {
-  const [show, setShow] = useState(() => !localStorage.getItem('wf-cookie-consent'));
-  if (!show) return null;
-  return (
-    <div className="wf-cookie-banner" role="dialog" aria-live="polite">
-      <span>
-        This site uses cookies for analytics and improved experience. See our <a href="#">privacy policy</a>.
-      </span>
-      <button className="wf-btn wf-btn-secondary" onClick={() => {
-        localStorage.setItem('wf-cookie-consent', '1');
-        setShow(false);
-      }}>Accept</button>
-    </div>
-  );
-}
+// function CookieConsent() {
+//   const [show, setShow] = useState(() => !localStorage.getItem('wf-cookie-consent'));
+//   if (!show) return null;
+//   return (
+//     <div className="wf-cookie-banner" role="dialog" aria-live="polite">
+//       <span>
+//         This site uses cookies for analytics and improved experience. See our <a href="/privacy" target="_blank" rel="noopener">privacy policy</a>.
+//       </span>
+//       <button className="wf-btn wf-btn-secondary" onClick={() => {
+//         localStorage.setItem('wf-cookie-consent', '1');
+//         setShow(false);
+//       }}>Accept</button>
+//     </div>
+//   );
+// }
 
 // Social media links
 function SocialLinks() {
@@ -1101,44 +1102,6 @@ function Carousel() {
         {partners.map((p, i) => (
           <div className="wf-carousel-item" key={i}>
             <img src={p.logo} alt={p.name} loading="lazy" />
-            <span>{p.name}</span>
-          </div>
-        ))}
-      </div>
-      <button
-        className="wf-carousel-arrow right"
-        aria-label="Scroll right"
-        onClick={() => scroll(1)}
-        type="button"
-      >&rarr;</button>
-    </section>
-  );
-}
-
-// Accessible live region for status updates (e.g., form submission, errors)
-function LiveRegion() {
-  // This can be used by any component to announce status messages
-  const [message, setMessage] = useState('');
-  // Expose a global setter for accessibility announcements
-  useEffect(() => {
-    window.setLiveRegion = setMessage;
-    return () => { window.setLiveRegion = undefined; };
-  }, []);
-  return (
-    <div
-      id="accessibility-live-region"
-      className="visually-hidden"
-      aria-live="polite"
-      aria-atomic="true"
-      role="status"
-    >
-      {message}
-    </div>
-  );
-}
-
-// Example usage in a form (ContactForm or FeedbackWidget):
-// window.setLiveRegion && window.setLiveRegion("Your message has been sent!");
             <span>{p.name}</span>
           </div>
         ))}

@@ -88,7 +88,49 @@ $BROWSER http://localhost:8080
 
 ## 🌐 Deployment
 
-You can deploy this site on any static hosting (GitHub Pages, Netlify, Vercel, etc.).
+### GitHub Pages Deployment
+
+This project is configured for easy deployment to GitHub Pages:
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Build and deploy to GitHub Pages:**
+   ```bash
+   npm run deploy
+   ```
+
+The deploy command will:
+- Build the production version of the app
+- Deploy it to the `gh-pages` branch
+- Make it available at: https://uchihaSayuri87.github.io/wells-fargo-early-competition-gca
+
+### Manual Deployment Steps
+
+If you need to deploy manually:
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. The build folder will contain all static files ready for deployment
+
+3. Upload the contents of the `build/` folder to your hosting provider
+
+### GitHub Pages Setup
+
+Make sure GitHub Pages is configured in your repository settings:
+- Go to Settings > Pages
+- Set source to "Deploy from a branch"
+- Select the `gh-pages` branch and `/` (root) folder
+- Save the settings
+
+### Alternative Hosting
+
+You can also deploy to other static hosting services like Netlify, Vercel, or GitHub Pages by uploading the contents of the `build/` folder.
 
 ---
 
