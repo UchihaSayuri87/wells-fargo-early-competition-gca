@@ -62,8 +62,8 @@ $BROWSER http://localhost:8080
 - Edit `custom.css` for styles and branding.
 - Edit `custom.js` for static interactivity (if needed).
 - Add or update sections (e.g., FAQ, Deliverables, Timeline) as needed.
-- **Analytics:** Set the Google Analytics ID via the `REACT_APP_GA_ID` environment variable or replace the placeholder in `public/index.html`.
-- **Images:** Optimize all images and use `loading="lazy"` for non-critical images.
+- **Analytics:** Set the Google Analytics ID via the `UA-XXXXX-Y` placeholder in `public/index.html` or remove the script if not needed.
+- **Images:** Optimize all images, use descriptive `alt` text, and use `loading="lazy"` for non-critical images.
 - **Translations:** Update the language switcher and translation object in `src/App.js` to add or refine languages.
 
 ---

@@ -20,6 +20,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ensure all text is readable on all screens */
+body, .wf-main, .wf-card, .wf-intro, .wf-testimonials, .wf-team-member {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--wf-dark);
+  background-clip: padding-box;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.01);
+  word-break: break-word;
+}
+
 /* Body styling for more appealing, less white background */
 body {
   margin: 0;
@@ -33,9 +42,105 @@ body {
   color: var(--wf-dark);
   line-height: 1.7;
   letter-spacing: 0.01em;
-  word-break: break-word;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility & Performance: 
+   - Use descriptive alt text for all images in React components.
+   - Use loading="lazy" for non-critical images.
+   - Compress images for faster load times.
+*/
+
+/* Responsive font and spacing for all screens */
+@media (max-width: 900px) {
+  html {
+    font-size: 17px;
+  }
+  .wf-main {
+    padding: 2rem 1rem;
+    max-width: 98vw;
+    font-size: 1rem;
+  }
+  .wf-header-content {
+    gap: 1.2rem;
+  }
+  .wf-partner-logos {
+    gap: 1.2rem;
+  }
+  .wf-main h2, .wf-main h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+  .wf-header-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .wf-header h1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  .wf-logo {
+    width: 60px;
+  }
+  .wf-main {
+    padding: 1rem 0.5rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    font-size: 0.97rem;
+  }
+  .wf-intro h2 {
+    font-size: 1.1rem;
+  }
+  .wf-intro p {
+    font-size: 1rem;
+  }
+  .wf-partner-logo {
+    width: 48px;
+  }
+  .wf-navbar ul {
+    gap: 1rem;
+  }
+  .wf-btn {
+    font-size: 1rem;
+    min-width: 120px;
+    padding: 0.7em 1.2em;
+  }
+  .wf-footer {
+    font-size: 0.95rem;
+    padding: 0.8rem 0;
+    border-radius: 0 0 10px 10px;
+  }
+  .wf-main h2, .wf-main h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+  html {
+    font-size: 20px;
+  }
+  .wf-header h1 {
+    font-size: 3.2rem;
+  }
+  .wf-intro h2 {
+    font-size: 2.6rem;
+  }
+  .wf-main {
+    max-width: 1100px;
+    padding: 4rem 3rem;
+    font-size: 1.15rem;
+  }
+  .wf-partner-logo {
+    width: 130px;
+  }
+  .wf-main h2, .wf-main h3 {
+    font-size: 2.4rem;
+  }
 }
 
 /* Enhanced diagonal pattern overlay for extra polish */
@@ -446,6 +551,61 @@ body::before {
   right: -18px;
 }
 
+/* New: Section for Blog/News and Alerts */
+.wf-blog, .wf-alerts {
+  background: linear-gradient(120deg, #fffbe6 60%, #ffe066 100%);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 4px 24px rgba(204,4,4,0.07);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.wf-blog h2, .wf-alerts h2 {
+  color: var(--wf-red);
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.wf-blog-article {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ffe066;
+}
+
+.wf-blog-article:last-child {
+  border-bottom: none;
+}
+
+.wf-blog-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--wf-red);
+  margin-bottom: 0.3rem;
+}
+
+.wf-blog-meta {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 0.7rem;
+}
+
+.wf-blog-content {
+  color: #333;
+}
+
+.wf-alert {
+  background: #fff3cd;
+  color: #856404;
+  border-left: 5px solid #ffe066;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+
 /* Utility: Visually hidden for accessibility (e.g., ARIA live regions, alerts) */
 .visually-hidden {
   position: absolute !important;
@@ -526,7 +686,6 @@ body::before {
   }
 }
 
-/* Mobile screens */
 @media (max-width: 600px) {
   html {
     font-size: 16px;

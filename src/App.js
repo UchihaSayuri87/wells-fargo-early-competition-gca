@@ -405,36 +405,131 @@ function Section({ children }) {
   return <section style={{transition:'opacity 0.6s, transform 0.6s'}}>{children}</section>;
 }
 
-// --- Contact Form with Validation and ARIA errors ---
+// --- Enhanced Contact Form with email sending via Formspree (or similar service) ---
 function ContactForm() {
   const [email, setEmail] = useState('');
   const [msg, setMsg] = useState('');
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const { lang } = useLang();
-  function validate(e) {
+
+  // You can use Formspree, EmailJS, or a backend endpoint for real email sending.
+  // Here, we'll use Formspree for demonstration.
+  // Replace the action URL with your own Formspree endpoint if needed.
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdoqzvbp"; // Example endpoint
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError('');
+    setSuccess('');
     if (!/\S+@\S+\.\S+/.test(email)) {
       setError('Please enter a valid email.');
-      e.preventDefault();
-      return false;
+      window.setLiveRegion && window.setLiveRegion('Please enter a valid email.');
+      return;
     }
-    setError('');
     setSent(true);
-    setTimeout(() => { setSent(false); setEmail(''); setMsg(''); }, 1500);
-    e.preventDefault();
-    return true;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          message: msg,
+          _subject: "Wells Fargo Contact Inquiry",
+          _replyto: email,
+          to: "alissamarierowell@gmail.com"
+        })
+      });
+      if (res.ok) {
+        setSuccess("Your inquiry has been sent! We'll get back to you soon.");
+        window.setLiveRegion && window.setLiveRegion("Your inquiry has been sent! We'll get back to you soon.");
+        setEmail('');
+        setMsg('');
+      } else {
+        setError("There was a problem sending your message. Please try again later.");
+        window.setLiveRegion && window.setLiveRegion("There was a problem sending your message. Please try again later.");
+      }
+    } catch {
+      setError("There was a problem sending your message. Please try again later.");
+      window.setLiveRegion && window.setLiveRegion("There was a problem sending your message. Please try again later.");
+    }
+    setSent(false);
   }
+
   return (
-    <form className="wf-card" style={{maxWidth:400,margin:'2rem auto'}} onSubmit={validate} aria-label="Contact form">
+    <form className="wf-card" style={{maxWidth:400,margin:'2rem auto'}} onSubmit={handleSubmit} aria-label="Contact form">
       <label htmlFor="contact-email" style={{fontWeight:600}}>Email</label>
-      <input id="contact-email" type="email" value={email} onChange={e=>setEmail(e.target.value)} required
-        aria-invalid={!!error} aria-describedby={error ? "contact-email-error" : undefined}
-        style={{width:'100%',margin:'0.5em 0'}} />
+      <input
+        id="contact-email"
+        type="email"
+        value={email}
+        onChange={e=>setEmail(e.target.value)}
+        required
+        aria-invalid={!!error}
+        aria-describedby={error ? "contact-email-error" : undefined}
+        style={{width:'100%',margin:'0.5em 0'}}
+        autoComplete="email"
+      />
       {error && <div id="contact-email-error" style={{color:'#c40404'}} role="alert">{error}</div>}
       <label htmlFor="contact-msg" style={{fontWeight:600}}>Message</label>
-      <textarea id="contact-msg" rows={3} value={msg} onChange={e=>setMsg(e.target.value)} style={{width:'100%',margin:'0.5em 0'}} />
-      <button className="wf-btn" type="submit" disabled={sent}>{sent ? "Sent!" : "Send"}</button>
+      <textarea
+        id="contact-msg"
+        rows={3}
+        value={msg}
+        onChange={e=>setMsg(e.target.value)}
+        style={{width:'100%',margin:'0.5em 0'}}
+        required
+        aria-required="true"
+      />
+      <button className="wf-btn" type="submit" disabled={sent}>{sent ? "Sending..." : "Send"}</button>
+      {success && <div style={{color:'#228B22',marginTop:'1em'}} role="status">{success}</div>}
     </form>
+  );
+}
+
+// --- Alerts Section (for important updates)
+function Alerts() {
+  return (
+    <section className="wf-alerts" aria-label="Alerts">
+      <h2>Important Updates</h2>
+      <div className="wf-alert" role="alert">
+        🚨 Scheduled maintenance: The platform will be unavailable on July 20th from 1:00 AM to 3:00 AM UTC.
+      </div>
+      <div className="wf-alert" role="alert">
+        🏆 Congratulations to the finalists of the 2024 Innovation Challenge!
+      </div>
+    </section>
+  );
+}
+
+// --- Blog/News Section
+function Blog() {
+  const articles = [
+    {
+      title: "Wells Fargo Launches New Digital Banking Features",
+      date: "2024-06-01",
+      author: "Team Wells Fargo",
+      content: "We are excited to announce a suite of new digital banking features designed to enhance security and user experience for all our customers."
+    },
+    {
+      title: "Innovation Challenge 2024: Highlights",
+      date: "2024-05-15",
+      author: "Innovation Team",
+      content: "This year's challenge brought together over 100 teams from around the world. Discover the winning ideas and what’s next for the finalists."
+    }
+  ];
+  return (
+    <section className="wf-blog" aria-label="Blog and News">
+      <h2>Blog & News</h2>
+      {articles.map((a, i) => (
+        <div className="wf-blog-article" key={i}>
+          <div className="wf-blog-title">{a.title}</div>
+          <div className="wf-blog-meta">{a.date} &middot; {a.author}</div>
+          <div className="wf-blog-content">{a.content}</div>
+        </div>
+      ))}
+    </section>
   );
 }
 
@@ -449,6 +544,7 @@ function App() {
         <ProgressBar />
         <PrintButton />
         <FeedbackWidget />
+        <LiveRegion />
         <div className="wf-container">
           <header className="wf-header">
             <div className="wf-header-content">
@@ -459,6 +555,7 @@ function App() {
           <Routes>
             <Route path="/" element={
               <main className="wf-main" id="main-content">
+                <Section><Alerts /></Section>
                 <Section><IntroSection /></Section>
                 <hr className="wf-section-divider" />
                 <Section><Carousel /></Section>
@@ -468,6 +565,8 @@ function App() {
                 <Section><Team /></Section>
                 <hr className="wf-section-divider" />
                 <Section><PartnersSection /></Section>
+                <hr className="wf-section-divider" />
+                <Section><Blog /></Section>
                 <hr className="wf-section-divider" />
                 <Section><ContactForm /></Section>
               </main>
@@ -789,3 +888,28 @@ function Carousel() {
     </section>
   );
 }
+
+// Accessible live region for status updates (e.g., form submission, errors)
+function LiveRegion() {
+  // This can be used by any component to announce status messages
+  const [message, setMessage] = useState('');
+  // Expose a global setter for accessibility announcements
+  useEffect(() => {
+    window.setLiveRegion = setMessage;
+    return () => { window.setLiveRegion = undefined; };
+  }, []);
+  return (
+    <div
+      id="accessibility-live-region"
+      className="visually-hidden"
+      aria-live="polite"
+      aria-atomic="true"
+      role="status"
+    >
+      {message}
+    </div>
+  );
+}
+
+// Example usage in a form (ContactForm or FeedbackWidget):
+// window.setLiveRegion && window.setLiveRegion("Your message has been sent!");

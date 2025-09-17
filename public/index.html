@@ -10,8 +10,7 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <meta name="robots" content="index,follow" />
-    <!-- Google Analytics (set REACT_APP_GA_ID in your environment or replace below) -->
-    <!-- Replace the script below with your actual GA ID or remove if not needed -->
+    <!-- Google Analytics: Replace UA-XXXXX-Y with your real ID or remove if not needed -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -44,5 +43,34 @@
       });
     </script>
     <!-- No other scripts should be present here. -->
+    <!-- Enhanced accessible contact form with file upload (place wherever you want your form) -->
+    <form
+      action="https://formspree.io/f/xjkeqorg"
+      method="POST"
+      enctype="multipart/form-data"
+      style="max-width:400px;margin:2rem auto;padding:2rem 1rem;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(204,4,4,0.07);"
+      aria-label="Contact form"
+    >
+      <label for="contact-email" style="display:block;font-weight:600;margin-bottom:0.5em;">Your email:</label>
+      <input
+        id="contact-email"
+        type="email"
+        name="email"
+        required
+        style="width:100%;margin-bottom:1em;padding:0.5em;border-radius:4px;border:1px solid #ccc;"
+        aria-required="true"
+        aria-label="Your email"
+        autocomplete="email"
+      >
+      <label for="contact-upload" style="display:block;font-weight:600;margin-bottom:0.5em;">Your file:</label>
+      <input
+        id="contact-upload"
+        type="file"
+        name="upload"
+        style="margin-bottom:1em;"
+        aria-label="Your file"
+      >
+      <button type="submit" class="wf-btn" style="width:100%;margin-top:1em;">Send</button>
+    </form>
   </body>
 </html>
