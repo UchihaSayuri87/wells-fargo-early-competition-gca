@@ -21,19 +21,3 @@ document.querySelectorAll('a[aria-label="Request Full Proposal"]').forEach(btn =
   });
 });
 
-// Highlight the "Explore Proposal" button when the overview section is in view
-const exploreBtn = document.querySelector('a[href="#overview"]');
-const overviewSection = document.getElementById('overview');
-if (exploreBtn && overviewSection) {
-  window.addEventListener('scroll', () => {
-    const rect = overviewSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      exploreBtn.classList.add('btn-warning');
-    } else {
-      exploreBtn.classList.remove('btn-warning');
-    }
-  });
-}
-    }
-  });
-}

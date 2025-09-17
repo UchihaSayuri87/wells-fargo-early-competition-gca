@@ -108,7 +108,6 @@ function App() {
       <main className="wf-main">
         <IntroSection />
         <PartnersSection />
-        {/* ...existing code... */}
       </main>
       {/* <Footer /> */}
     </div>
