@@ -533,6 +533,140 @@ function Blog() {
   );
 }
 
+// --- Hero Section
+function Hero() {
+  return (
+    <section className="wf-hero" aria-label="Hero">
+      <h1 className="wf-hero-title">Empowering the Future of Finance</h1>
+      <p className="wf-hero-subtitle">
+        Join the Wells Fargo Innovation Challenge and help shape tomorrow’s banking technology.
+      </p>
+      <a href="#contact" className="wf-btn wf-btn-secondary" style={{marginTop: '1.5rem'}}>Get Involved</a>
+    </section>
+  );
+}
+
+// --- Feature Cards Section
+function Features() {
+  const features = [
+    {
+      icon: "🔒",
+      title: "Security",
+      desc: "Industry-leading security and privacy for all users."
+    },
+    {
+      icon: "💡",
+      title: "Innovation",
+      desc: "Cutting-edge solutions and creative thinking."
+    },
+    {
+      icon: "🤝",
+      title: "Community",
+      desc: "Collaboration and support for every participant."
+    },
+    {
+      icon: "🚀",
+      title: "Growth",
+      desc: "Opportunities for learning and career advancement."
+    }
+  ];
+  return (
+    <section className="wf-features" aria-label="Features">
+      <div className="wf-features-list">
+        {features.map((f, i) => (
+          <div className="wf-feature-card" key={i}>
+            <div className="wf-feature-icon" aria-hidden="true">{f.icon}</div>
+            <div className="wf-feature-title">{f.title}</div>
+            <div className="wf-feature-desc">{f.desc}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// --- Timeline Section
+function Timeline() {
+  const events = [
+    { date: "May 2024", label: "Challenge Launch" },
+    { date: "June 2024", label: "Workshops & Mentoring" },
+    { date: "July 2024", label: "Submission Deadline" },
+    { date: "August 2024", label: "Finalist Selection" },
+    { date: "September 2024", label: "Demo Day & Awards" }
+  ];
+  return (
+    <section className="wf-timeline" aria-label="Timeline">
+      <h2>Roadmap</h2>
+      <div className="wf-timeline-list">
+        {events.map((e, i) => (
+          <div className="wf-timeline-event" key={i}>
+            <div className="wf-timeline-date">{e.date}</div>
+            <div className="wf-timeline-label">{e.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// --- FAQ Section
+function FAQ() {
+  const faqs = [
+    {
+      q: "Who can participate in the Innovation Challenge?",
+      a: "Anyone with a passion for fintech and innovation is welcome to join."
+    },
+    {
+      q: "Is there a cost to participate?",
+      a: "No, participation is free for all selected teams and individuals."
+    },
+    {
+      q: "How do I submit my project?",
+      a: "Register and submit your project through our online portal before the deadline."
+    },
+    {
+      q: "What are the prizes?",
+      a: "Winners receive cash prizes, mentorship, and the opportunity to collaborate with Wells Fargo."
+    }
+  ];
+  return (
+    <section className="wf-faq" aria-label="FAQ">
+      <h2>Frequently Asked Questions</h2>
+      <div className="wf-faq-list">
+        {faqs.map((f, i) => (
+          <details key={i} className="wf-faq-item">
+            <summary className="wf-faq-q">{f.q}</summary>
+            <div className="wf-faq-a">{f.a}</div>
+          </details>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// --- Statistics/Impact Section
+function Impact() {
+  const stats = [
+    { value: "500+", label: "Participants" },
+    { value: "100+", label: "Projects Submitted" },
+    { value: "20", label: "Countries Represented" },
+    { value: "$50K", label: "Total Prizes" }
+  ];
+  return (
+    <section className="wf-impact" aria-label="Impact">
+      <h2>Our Impact</h2>
+      <div className="wf-impact-list">
+        {stats.map((s, i) => (
+          <div className="wf-impact-item" key={i}>
+            <div className="wf-impact-value">{s.value}</div>
+            <div className="wf-impact-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 // --- Main App ---
 function App() {
   const [lang, setLang] = useState('en');
@@ -555,6 +689,11 @@ function App() {
           <Routes>
             <Route path="/" element={
               <main className="wf-main" id="main-content">
+                <Hero />
+                <Features />
+                <Impact />
+                <Timeline />
+                <FAQ />
                 <Section><Alerts /></Section>
                 <Section><IntroSection /></Section>
                 <hr className="wf-section-divider" />

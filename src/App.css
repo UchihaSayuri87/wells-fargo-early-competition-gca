@@ -606,6 +606,153 @@ body::before {
   font-size: 1rem;
 }
 
+/* Hero Section */
+.wf-hero {
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem 1rem;
+  background: linear-gradient(120deg, #ffe066 0%, #fffbe6 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(204,4,4,0.08);
+  margin-bottom: 2.5rem;
+}
+.wf-hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--wf-red);
+  margin-bottom: 1rem;
+}
+.wf-hero-subtitle {
+  font-size: 1.3rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+/* Features Section */
+.wf-features {
+  margin-bottom: 2.5rem;
+}
+.wf-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.wf-feature-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(204,4,4,0.07);
+  padding: 2rem 1.5rem;
+  width: 220px;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.wf-feature-card:hover {
+  box-shadow: 0 8px 32px rgba(204,4,4,0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+.wf-feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.7rem;
+}
+.wf-feature-title {
+  font-weight: 700;
+  color: var(--wf-red);
+  margin-bottom: 0.3rem;
+  font-size: 1.15rem;
+}
+.wf-feature-desc {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Timeline Section */
+.wf-timeline {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.wf-timeline-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+.wf-timeline-event {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(204,4,4,0.07);
+  padding: 1.2rem 1.5rem;
+  min-width: 160px;
+  text-align: center;
+}
+.wf-timeline-date {
+  font-weight: 700;
+  color: var(--wf-red);
+  margin-bottom: 0.3rem;
+}
+.wf-timeline-label {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* FAQ Section */
+.wf-faq {
+  margin-bottom: 2.5rem;
+}
+.wf-faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.wf-faq-item {
+  margin-bottom: 1.2rem;
+  background: #fffbe6;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(204,4,4,0.04);
+}
+.wf-faq-q {
+  font-weight: 700;
+  color: var(--wf-red);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.wf-faq-a {
+  color: #333;
+  margin-top: 0.7rem;
+  font-size: 1rem;
+}
+
+/* Impact/Statistics Section */
+.wf-impact {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.wf-impact-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+.wf-impact-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(204,4,4,0.07);
+  padding: 1.2rem 1.5rem;
+  min-width: 140px;
+  text-align: center;
+}
+.wf-impact-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--wf-red);
+  margin-bottom: 0.3rem;
+}
+.wf-impact-label {
+  color: #555;
+  font-size: 1rem;
+}
+
 /* Utility: Visually hidden for accessibility (e.g., ARIA live regions, alerts) */
 .visually-hidden {
   position: absolute !important;
