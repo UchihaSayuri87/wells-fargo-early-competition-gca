@@ -614,6 +614,30 @@ body::before {
   border-radius: 18px;
   box-shadow: 0 8px 32px rgba(204,4,4,0.08);
   margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.wf-hero::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  z-index: 0;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #ffe066, #c40404, #ffcc00, #ffe066);
+  background-size: 300% 300%;
+  animation: wf-hero-border 8s linear infinite;
+  filter: blur(8px);
+  opacity: 0.7;
+}
+@keyframes wf-hero-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.wf-hero > * {
+  position: relative;
+  z-index: 1;
 }
 .wf-hero-title {
   font-size: 2.8rem;
@@ -644,11 +668,13 @@ body::before {
   padding: 2rem 1.5rem;
   width: 220px;
   text-align: center;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.3s;
+  background: rgba(255,255,255,0.92);
 }
 .wf-feature-card:hover {
-  box-shadow: 0 8px 32px rgba(204,4,4,0.13);
-  transform: translateY(-4px) scale(1.03);
+  background: #ffe066;
+  box-shadow: 0 12px 32px rgba(196,4,4,0.18);
+  transform: translateY(-8px) scale(1.05) rotate(-2deg);
 }
 .wf-feature-icon {
   font-size: 2.5rem;
@@ -671,28 +697,52 @@ body::before {
   text-align: center;
 }
 .wf-timeline-list {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
   margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+.wf-timeline-list::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  width: 4px;
+  background: linear-gradient(180deg, #ffe066 0%, #c40404 100%);
+  transform: translateX(-50%);
+  z-index: 0;
+  border-radius: 2px;
 }
 .wf-timeline-event {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(204,4,4,0.07);
-  padding: 1.2rem 1.5rem;
-  min-width: 160px;
-  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  background: rgba(255,255,255,0.95);
 }
 .wf-timeline-date {
+  position: relative;
   font-weight: 700;
   color: var(--wf-red);
   margin-bottom: 0.3rem;
 }
-.wf-timeline-label {
-  color: #555;
-  font-size: 1rem;
+.wf-timeline-date::after {
+  content: "";
+  display: block;
+  margin: 0.5em auto 0 auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #ffe066, #c40404);
+  box-shadow: 0 0 8px #ffe066;
+  animation: wf-timeline-dot 2s infinite alternate;
+}
+@keyframes wf-timeline-dot {
+  0% { box-shadow: 0 0 8px #ffe066; }
+  100% { box-shadow: 0 0 16px #c40404; }
 }
 
 /* FAQ Section */
@@ -747,6 +797,8 @@ body::before {
   font-weight: 700;
   color: var(--wf-red);
   margin-bottom: 0.3rem;
+  text-shadow: 0 0 8px #ffe066, 0 0 2px #c40404;
+  letter-spacing: 1px;
 }
 .wf-impact-label {
   color: #555;
@@ -1093,6 +1145,193 @@ body.wf-dark .wf-skip-link {
 .wf-lang-switcher button:focus {
   background: var(--wf-red);
   color: var(--wf-gold);
+}
+
+/* Add glassmorphism effect to main sections */
+.wf-main,
+.wf-card,
+.wf-hero,
+.wf-features,
+.wf-timeline,
+.wf-faq,
+.wf-impact,
+.wf-blog,
+.wf-alerts,
+.wf-video {
+  backdrop-filter: blur(8px) saturate(1.2);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(196,4,4,0.10);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Add animated gradient border to hero */
+.wf-hero {
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.wf-hero::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  z-index: 0;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #ffe066, #c40404, #ffcc00, #ffe066);
+  background-size: 300% 300%;
+  animation: wf-hero-border 8s linear infinite;
+  filter: blur(8px);
+  opacity: 0.7;
+}
+@keyframes wf-hero-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.wf-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add subtle hover animation to feature cards */
+.wf-feature-card {
+  transition: box-shadow 0.3s, transform 0.2s, background 0.3s;
+  background: rgba(255,255,255,0.92);
+}
+.wf-feature-card:hover {
+  background: #ffe066;
+  box-shadow: 0 12px 32px rgba(196,4,4,0.18);
+  transform: translateY(-8px) scale(1.05) rotate(-2deg);
+}
+
+/* Add neon glow to impact/statistics numbers */
+.wf-impact-value {
+  text-shadow: 0 0 8px #ffe066, 0 0 2px #c40404;
+  letter-spacing: 1px;
+}
+
+/* FAQ: animated open/close arrow */
+.wf-faq-q::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 0.5em;
+  transition: transform 0.2s;
+}
+.wf-faq-item[open] .wf-faq-q::before {
+  transform: rotate(90deg);
+}
+
+/* Timeline: add connecting line and animated dots */
+.wf-timeline-list {
+  position: relative;
+  padding-bottom: 2rem;
+}
+.wf-timeline-list::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  width: 4px;
+  background: linear-gradient(180deg, #ffe066 0%, #c40404 100%);
+  transform: translateX(-50%);
+  z-index: 0;
+  border-radius: 2px;
+}
+.wf-timeline-event {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  background: rgba(255,255,255,0.95);
+}
+.wf-timeline-date {
+  position: relative;
+  font-weight: 700;
+  color: var(--wf-red);
+  margin-bottom: 0.3rem;
+}
+.wf-timeline-date::after {
+  content: "";
+  display: block;
+  margin: 0.5em auto 0 auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #ffe066, #c40404);
+  box-shadow: 0 0 8px #ffe066;
+  animation: wf-timeline-dot 2s infinite alternate;
+}
+@keyframes wf-timeline-dot {
+  0% { box-shadow: 0 0 8px #ffe066; }
+  100% { box-shadow: 0 0 16px #c40404; }
+}
+
+/* Add animated underline to section headings */
+.wf-main h2, .wf-main h3, .wf-hero-title, .wf-video h2, .wf-faq h2, .wf-impact h2, .wf-timeline h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+.wf-main h2::after,
+.wf-main h3::after,
+.wf-hero-title::after,
+.wf-video h2::after,
+.wf-faq h2::after,
+.wf-impact h2::after,
+.wf-timeline h2::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 60%;
+  margin: 0.2em auto 0 auto;
+  background: linear-gradient(90deg, #c40404, #ffe066, #ffcc00);
+  border-radius: 2px;
+  animation: wf-underline 3s linear infinite;
+}
+@keyframes wf-underline {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Animate buttons on hover */
+.wf-btn, .wf-btn-secondary {
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.wf-btn:hover, .wf-btn-secondary:hover {
+  box-shadow: 0 4px 16px #ffe066, 0 0 0 #c40404;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+/* Add a floating, glowing effect to the back-to-top button */
+.wf-btn[aria-label="Back to top"] {
+  box-shadow: 0 0 16px #ffe066, 0 0 4px #c40404;
+  animation: wf-float 2s infinite alternate;
+}
+@keyframes wf-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Add a cool gradient background to the sticky navbar */
+.wf-navbar-sticky {
+  background: linear-gradient(90deg, #c40404 60%, #ffcc00 100%);
+  box-shadow: 0 2px 16px rgba(196,4,4,0.12);
+}
+
+/* Newsletter signup: add a subtle pulse on subscribe */
+.wf-footer form.wf-card button[type="submit"]:not(:disabled):hover {
+  animation: wf-pulse 0.7s;
+}
+@keyframes wf-pulse {
+  0% { box-shadow: 0 0 0 0 #ffe066; }
+  70% { box-shadow: 0 0 0 10px #ffe06644; }
+  100% { box-shadow: 0 0 0 0 #ffe066; }
+}
+
+/* Add a soft drop shadow to illustrations and video */
+.wf-hero svg,
+.wf-video iframe {
+  box-shadow: 0 8px 32px rgba(196,4,4,0.10);
+  border-radius: 16px;
 }
 
 /* No errors found. All code is clean and readable. */
