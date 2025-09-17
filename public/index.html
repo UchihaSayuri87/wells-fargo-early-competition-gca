@@ -4,7 +4,6 @@
     <!-- Meta tags for SEO and responsiveness -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Favicon for browser tab -->
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="theme-color" content="#c40404" />
     <link rel="manifest" href="/manifest.json" />
@@ -19,23 +18,19 @@
       gtag('config', 'UA-XXXXX-Y');
     </script>
     <title>Wells Fargo Innovation Challenge</title>
-    <!-- SEO and social sharing metadata -->
     <meta name="description" content="Wells Fargo Innovation Challenge: Empowering the Future of Financial Services" />
     <meta property="og:title" content="Wells Fargo Innovation Challenge" />
     <meta property="og:description" content="Join Wells Fargo to innovate and shape the future of banking technology." />
     <meta property="og:image" content="%PUBLIC_URL%/wells-fargo-logo.png" />
     <style>
-      /* Subtle fade-in for page load */
       body { opacity: 0; transition: opacity 0.5s; }
       body.wf-loaded { opacity: 1; }
     </style>
   </head>
   <body>
-    <!-- Fallback for users with JavaScript disabled -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
-      // Fade in page on load
       window.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('wf-loaded');
       });
@@ -58,7 +53,7 @@
         aria-required="true"
         aria-label="Your email"
         autocomplete="email"
-      >
+      />
       <label for="contact-upload" style="display:block;font-weight:600;margin-bottom:0.5em;">Your file:</label>
       <input
         id="contact-upload"
@@ -66,7 +61,7 @@
         name="upload"
         style="margin-bottom:1em;"
         aria-label="Your file"
-      >
+      />
       <button type="submit" class="wf-btn" style="width:100%;margin-top:1em;">Send</button>
     </form>
   </body>
