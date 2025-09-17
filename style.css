@@ -1,6 +1,10 @@
+/* Enable smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
-/* Overlay for parallax sections */
+}
+
+/* Overlay for parallax sections
+   Adds a semi-transparent black layer over background images for better text contrast */
 .parallax-overlay {
   position: absolute;
   top: 0;
@@ -17,9 +21,9 @@ html {
   position: relative;
   z-index: 2;
 }
-}
 
-/* Parallax shared styles */
+/* Parallax shared styles
+   Sets up the background image and layout for parallax effect */
 .parallax {
   background-attachment: fixed;
   background-size: cover;
@@ -28,7 +32,15 @@ html {
   position: relative;
 }
 
-/* Backgrounds for different parallax sections */
+/* Disable parallax fixed background on mobile for better compatibility */
+@media (max-width: 767px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+
+/* Backgrounds for different parallax sections
+   Each class uses a different Unsplash image */
 .bg-hero {
   background-image: url('https://images.unsplash.com/photo-1565372918364-7df5b0e7c5cf?auto=format&fit=crop&w=1350&q=80');
 }
@@ -41,16 +53,31 @@ html {
   background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80');
 }
 
-/* General styling */
+/* General styling for cards
+   Removes border, rounds corners, and adds hover/focus effects */
 .card {
   border: none;
   border-radius: 12px;
   transition: transform 0.2s ease;
+  outline: none;
 }
 .card:hover {
   transform: translateY(-6px);
 }
+.card:focus {
+  box-shadow: 0 0 0 3px #0d6efd66;
+  outline: 2px solid #0d6efd;
+}
 
+/* Focus styles for buttons and links
+   Improves accessibility for keyboard users */
+.btn:focus, a:focus {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px #0d6efd66;
+}
+
+/* Footer styling */
 footer {
   font-size: 14px;
 }
