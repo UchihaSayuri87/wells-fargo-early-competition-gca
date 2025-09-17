@@ -9,119 +9,247 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles -->
   <link rel="stylesheet" href="style.css">
-  <!-- Favicon for branding -->
   <link rel="icon" href="https://www.wellsfargo.com/favicon.ico">
-  <!-- For accessibility: Ensure sufficient color contrast and add ARIA landmarks where needed -->
+  <link rel="stylesheet" href="custom.css">
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="80" tabindex="0">
 
-  <!-- Hero Section with Parallax background and overlay -->
-  <section class="parallax bg-hero d-flex align-items-center justify-content-center text-center text-white position-relative" aria-label="Hero section">
-    <!-- Overlay for darkening the background image -->
-    <div class="parallax-overlay"></div>
-    <div>
-      <!-- Main heading and subtitle -->
-      <h1 class="display-4 fw-bold">Wells Fargo Project Proposal</h1>
-      <p class="lead">Innovating Financial Services for Tomorrow</p>
-      <!-- Button to scroll to the overview section -->
-      <a href="#overview" class="btn btn-light mt-3" aria-label="Explore Proposal section">Explore Proposal</a>
-    </div>
-  </section>
-
-  <!-- Overview Section: Project summary and objectives -->
-  <section id="overview" class="container py-5" aria-label="Project Overview" role="main">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <!-- Section heading and description -->
-        <h2 class="fw-bold">Project Overview</h2>
-        <p>
-          This proposal outlines a strategy to enhance Wells Fargo’s digital banking experience,
-          focusing on security, accessibility, and customer engagement.
-        </p>
-      </div>
-      <div class="col-md-6 d-flex justify-content-center">
-        <!-- Card listing key objectives -->
-        <div class="card shadow-sm p-4">
-          <h4>Key Objectives</h4>
-          <ul class="mb-0">
-            <li>Improve mobile banking features</li>
-            <li>Enhance data security</li>
-            <li>Expand digital customer support</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Parallax Section: Strategy -->
-  <section class="parallax bg-strategy d-flex align-items-center text-center text-white position-relative" aria-label="Strategy section">
-    <div class="parallax-overlay"></div>
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top shadow-sm">
     <div class="container">
-      <!-- Strategy heading and description -->
-      <h2 class="fw-bold">Strategy</h2>
-      <p class="lead">Leveraging AI and secure cloud infrastructure to streamline operations.</p>
-    </div>
-  </section>
-
-  <!-- Deliverables Section: What will be delivered in the project -->
-  <section id="deliverables" class="container py-5" aria-label="Deliverables">
-    <h2 class="fw-bold text-center mb-4">Deliverables</h2>
-    <div class="row g-4">
-      <!-- Each deliverable is in a card -->
-      <div class="col-md-4 d-flex">
-        <div class="card flex-fill p-3 text-center">
-          <h5>Mobile App Upgrade</h5>
-          <p>Redesign mobile banking with enhanced UX and biometric security.</p>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex">
-        <div class="card flex-fill p-3 text-center">
-          <h5>AI Chatbot</h5>
-          <p>24/7 intelligent support integrated with customer accounts.</p>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex">
-        <div class="card flex-fill p-3 text-center">
-          <h5>Cloud Migration</h5>
-          <p>Secure transition to cloud infrastructure for scalability.</p>
-        </div>
+      <a class="navbar-brand fw-bold" href="#">
+        <img src="https://www.wellsfargo.com/favicon.ico" alt="Wells Fargo Logo" width="32" height="32" class="me-2 align-text-top" loading="lazy">
+        Wells Fargo Proposal
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="#deliverables">Deliverables</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <!-- Parallax Section: Timeline -->
-  <section class="parallax bg-timeline d-flex align-items-center text-center text-white position-relative" aria-label="Timeline section">
-    <div class="parallax-overlay"></div>
-    <div class="container">
-      <!-- Timeline heading and description -->
-      <h2 class="fw-bold">Timeline</h2>
-      <p class="lead">A phased 12-month rollout with measurable milestones.</p>
+  <!-- Hero Section -->
+  <main>
+    <section class="parallax bg-hero d-flex align-items-center justify-content-center text-center text-white position-relative fade-in" aria-label="Hero section">
+      <div class="parallax-overlay"></div>
+      <div>
+        <h1 class="display-4 fw-bold">Wells Fargo Project Proposal</h1>
+        <p class="lead">Innovating Financial Services for Tomorrow</p>
+        <a href="#overview" class="btn btn-light mt-3" aria-label="Explore Proposal section">Explore Proposal</a>
+      </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="container py-5 fade-in" aria-label="Project Overview" role="main">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <!-- Section heading and description -->
+          <h2 class="fw-bold">Project Overview</h2>
+          <p>
+            This proposal outlines a strategy to enhance Wells Fargo’s digital banking experience,
+            focusing on security, accessibility, and customer engagement.
+          </p>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+          <!-- Card listing key objectives -->
+          <div class="card shadow-sm p-4">
+            <h4>Key Objectives</h4>
+            <ul class="mb-0">
+              <li>Improve mobile banking features</li>
+              <li>Enhance data security</li>
+              <li>Expand digital customer support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallax Section: Strategy -->
+    <section class="parallax bg-strategy d-flex align-items-center text-center text-white position-relative fade-in" aria-label="Strategy section">
+      <div class="parallax-overlay"></div>
+      <div class="container">
+        <!-- Strategy heading and description -->
+        <h2 class="fw-bold">Strategy</h2>
+        <p class="lead">Leveraging AI and secure cloud infrastructure to streamline operations.</p>
+      </div>
+    </section>
+
+    <!-- Deliverables Section -->
+    <section id="deliverables" class="container py-5 fade-in" aria-label="Deliverables">
+      <h2 class="fw-bold text-center mb-4">Deliverables</h2>
+      <div class="row g-4">
+        <!-- Each deliverable is in a card -->
+        <div class="col-md-4 d-flex">
+          <div class="card flex-fill p-3 text-center">
+            <h5>Mobile App Upgrade</h5>
+            <p>Redesign mobile banking with enhanced UX and biometric security.</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="card flex-fill p-3 text-center">
+            <h5>AI Chatbot</h5>
+            <p>24/7 intelligent support integrated with customer accounts.</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="card flex-fill p-3 text-center">
+            <h5>Cloud Migration</h5>
+            <p>Secure transition to cloud infrastructure for scalability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallax Section: Timeline -->
+    <section class="parallax bg-timeline d-flex align-items-center text-center text-white position-relative fade-in" aria-label="Timeline section">
+      <div class="parallax-overlay"></div>
+      <div class="container">
+        <!-- Timeline heading and description -->
+        <h2 class="fw-bold">Timeline</h2>
+        <p class="lead">A phased 12-month rollout with measurable milestones.</p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container py-5 fade-in" aria-label="Frequently Asked Questions">
+      <h2 class="fw-bold text-center mb-4">FAQ</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq1-heading">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+              How do I request the full proposal?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-heading" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Click the "Request Full Proposal" button in the Contact section and submit your email.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq2-heading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+              Who can I contact for more information?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Please use the contact form or email our project team directly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container py-5 text-center fade-in" aria-label="Contact">
+      <h2 class="fw-bold mb-3">Contact</h2>
+      <p>For more details, please reach out to our project team.</p>
+      <!-- Button to request the full proposal -->
+      <a href="#" class="btn btn-primary" aria-label="Request Full Proposal" data-bs-toggle="modal" data-bs-target="#proposalModal">Request Full Proposal</a>
+    </section>
+  </main>
+
+  <!-- Modal for Request Full Proposal -->
+  <div class="modal fade" id="proposalModal" tabindex="-1" aria-labelledby="proposalModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="proposalModalLabel">Request Full Proposal</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Thank you for your interest! Please enter your email and we will send you the full proposal.</p>
+          <form>
+            <label for="proposalEmail" class="form-label">Email address</label>
+            <input type="email" id="proposalEmail" class="form-control mb-3" placeholder="Your Email" required>
+            <button type="submit" class="btn btn-danger w-100">Send Proposal</button>
+          </form>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Contact Section: How to get in touch -->
-  <section id="contact" class="container py-5 text-center" aria-label="Contact">
-    <h2 class="fw-bold mb-3">Contact</h2>
-    <p>For more details, please reach out to our project team.</p>
-    <!-- Button to request the full proposal -->
-    <a href="#" class="btn btn-primary" aria-label="Request Full Proposal">Request Full Proposal</a>
-  </section>
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top" title="Back to top">&uarr;</button>
 
-  <!-- Student Notes Section: Add your notes or TODOs here -->
-  <section class="container py-3" aria-label="Student Notes">
-    <h3>Student Notes / TODOs</h3>
-    <ul>
-      <li><!-- Example: Add a new feature here --></li>
-    </ul>
-  </section>
-
-  <!-- Footer: Copyright and notes -->
-  <footer class="text-center py-3 bg-dark text-white" aria-label="Footer">
+  <!-- Footer with watermark -->
+  <footer class="text-center py-3 bg-dark text-white position-relative" aria-label="Footer">
     <p class="mb-0">© 2025 Wells Fargo Proposal. All rights reserved.</p>
-    <!-- For better mobile parallax support, consider a JS-based parallax library such as Rellax.js or simpleParallax.js -->
+    <img src="https://www.wellsfargo.com/favicon.ico" alt="Wells Fargo Watermark" style="opacity:0.07;position:absolute;right:2rem;bottom:0.5rem;width:60px;pointer-events:none;" loading="lazy">
   </footer>
 
-  <!-- Optional: Add your custom scripts below -->
-  <script src="script.js"></script>
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="custom.js"></script>
+  <script>
+    // Fade-in effect for sections on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeEls = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = "0.1s";
+            entry.target.classList.add('animated');
+            entry.target.style.opacity = 1;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      fadeEls.forEach(el => {
+        el.style.opacity = 0;
+        observer.observe(el);
+      });
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Modal form submit (simulate sending)
+    document.addEventListener('DOMContentLoaded', function() {
+      const modalForm = document.querySelector('#proposalModal form');
+      if (modalForm) {
+        modalForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          modalForm.querySelector('button[type="submit"]').disabled = true;
+          modalForm.querySelector('button[type="submit"]').textContent = "Sending...";
+          setTimeout(() => {
+            modalForm.querySelector('button[type="submit"]').textContent = "Send Proposal";
+            modalForm.querySelector('button[type="submit"]').disabled = false;
+            bootstrap.Modal.getInstance(document.getElementById('proposalModal')).hide();
+            alert('Thank you! The full proposal will be sent to your email soon.');
+          }, 1200);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+            modalForm.querySelector('button[type="submit"]').textContent = "Send Proposal";
+            modalForm.querySelector('button[type="submit"]').disabled = false;
+            bootstrap.Modal.getInstance(document.getElementById('proposalModal')).hide();
+            alert('Thank you! The full proposal will be sent to your email soon.');
+          }, 1200);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
