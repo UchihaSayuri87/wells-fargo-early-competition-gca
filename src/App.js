@@ -100,15 +100,6 @@ function PartnersSection() {
   );
 }
 
-// Footer
-function Footer() {
-  return (
-    <footer className="wf-footer">
-      &copy; {new Date().getFullYear()} Wells Fargo. All rights reserved.
-    </footer>
-  );
-}
-
 // Main App
 function App() {
   return (
@@ -119,7 +110,7 @@ function App() {
         <PartnersSection />
         {/* ...existing code... */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
