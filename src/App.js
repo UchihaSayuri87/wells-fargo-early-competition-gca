@@ -848,15 +848,6 @@ function App() {
   );
 }
 
-// Skip to main content for accessibility
-function SkipLink() {
-  return (
-    <a href="#main-content" className="wf-skip-link">
-      Skip to main content
-    </a>
-  );
-}
-
 // Dark mode toggle
 function DarkModeToggle({ darkMode, setDarkMode }) {
   return (
@@ -901,35 +892,6 @@ function SocialLinks() {
 // Loading skeleton for testimonials/team
 function Skeleton({ width = "100%", height = "1.2em" }) {
   return <div className="wf-skeleton" style={{ width, height }} aria-hidden="true"></div>;
-}
-
-// Navigation bar for main sections
-function NavBar() {
-  return (
-    <nav className="wf-navbar">
-      <ul>
-        <li><a href="#intro">Home</a></li>
-        <li><a href="#partners">Partners</a></li>
-        <li><a href="mailto:innovation@wellsfargo.com">Contact</a></li>
-      </ul>
-    </nav>
-  );
-}
-
-// Header: Wells Fargo logo and title
-function Header() {
-  return (
-    <header className="wf-header">
-      <div className="wf-header-content">
-        <img
-          src="/wells-fargo-logo.png"
-          alt="Wells Fargo Logo"
-          className="wf-logo"
-        />
-        <h1>Wells Fargo Innovation Challenge</h1>
-      </div>
-    </header>
-  );
 }
 
 // Introduction section with call-to-action buttons
@@ -1139,6 +1101,44 @@ function Carousel() {
         {partners.map((p, i) => (
           <div className="wf-carousel-item" key={i}>
             <img src={p.logo} alt={p.name} loading="lazy" />
+            <span>{p.name}</span>
+          </div>
+        ))}
+      </div>
+      <button
+        className="wf-carousel-arrow right"
+        aria-label="Scroll right"
+        onClick={() => scroll(1)}
+        type="button"
+      >&rarr;</button>
+    </section>
+  );
+}
+
+// Accessible live region for status updates (e.g., form submission, errors)
+function LiveRegion() {
+  // This can be used by any component to announce status messages
+  const [message, setMessage] = useState('');
+  // Expose a global setter for accessibility announcements
+  useEffect(() => {
+    window.setLiveRegion = setMessage;
+    return () => { window.setLiveRegion = undefined; };
+  }, []);
+  return (
+    <div
+      id="accessibility-live-region"
+      className="visually-hidden"
+      aria-live="polite"
+      aria-atomic="true"
+      role="status"
+    >
+      {message}
+    </div>
+  );
+}
+
+// Example usage in a form (ContactForm or FeedbackWidget):
+// window.setLiveRegion && window.setLiveRegion("Your message has been sent!");
             <span>{p.name}</span>
           </div>
         ))}
