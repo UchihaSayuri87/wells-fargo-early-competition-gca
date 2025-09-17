@@ -11,12 +11,13 @@
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <meta name="robots" content="index,follow" />
     <!-- Google Analytics (set REACT_APP_GA_ID in your environment or replace below) -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_GA_ID || 'UA-XXXXX-Y'}`}></script>
+    <!-- Replace the script below with your actual GA ID or remove if not needed -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', '{process.env.REACT_APP_GA_ID || "UA-XXXXX-Y"}');
+      gtag('config', 'UA-XXXXX-Y');
     </script>
     <title>Wells Fargo Innovation Challenge</title>
     <!-- SEO and social sharing metadata -->

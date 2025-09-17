@@ -264,6 +264,7 @@ function useLang() {
 }
 function LanguageSwitcher() {
   const { lang, setLang } = useLang();
+  // List of all supported languages
   const langs = [
     { code: 'en', label: 'EN', native: 'English' },
     { code: 'zh', label: '中文', native: '中文 (Chinese)' },
@@ -300,7 +301,8 @@ function LanguageSwitcher() {
             fontWeight: lang === l.code ? 'bold' : 'normal',
             outline: lang === l.code ? '2px solid #c40404' : undefined,
             background: lang === l.code ? 'var(--wf-red)' : undefined,
-            color: lang === l.code ? 'var(--wf-gold)' : undefined
+            color: lang === l.code ? 'var(--wf-gold)' : undefined,
+            margin: '0 0.15em'
           }}
         >
           {l.label}
