@@ -1,0 +1,21 @@
+{
+  "short_name": "WF Proposal",
+  "name": "Wells Fargo Project Proposal",
+  "icons": [
+    {
+      "src": "/wells-fargo-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/wells-fargo-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#c40404",
+  "display": "standalone",
+  "theme_color": "#c40404",
+  "orientation": "portrait"
+}

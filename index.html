@@ -37,34 +37,34 @@
 
   <!-- Hero Section -->
   <main>
-    <section class="parallax bg-hero d-flex align-items-center justify-content-center text-center text-white position-relative fade-in" aria-label="Hero section">
+    <section class="parallax bg-hero d-flex align-items-center justify-content-center text-center text-white position-relative fade-in" aria-label="Hero section" style="min-height:60vh;">
       <div class="parallax-overlay"></div>
       <div>
-        <h1 class="display-4 fw-bold">Wells Fargo Project Proposal</h1>
-        <p class="lead">Innovating Financial Services for Tomorrow</p>
-        <a href="#overview" class="btn btn-light mt-3" aria-label="Explore Proposal section">Explore Proposal</a>
+        <h1 class="display-3 fw-bold mb-3">Wells Fargo Project Proposal</h1>
+        <p class="lead mb-4">Innovating Financial Services for Tomorrow</p>
+        <a href="#overview" class="btn btn-light btn-lg shadow" aria-label="Explore Proposal section">Explore Proposal</a>
       </div>
     </section>
 
     <!-- Overview Section -->
     <section id="overview" class="container py-5 fade-in" aria-label="Project Overview" role="main">
       <div class="row align-items-center">
-        <div class="col-md-6">
+        <div class="col-lg-6 mb-4 mb-lg-0">
           <!-- Section heading and description -->
-          <h2 class="fw-bold">Project Overview</h2>
-          <p>
+          <h2 class="fw-bold mb-3">Project Overview</h2>
+          <p class="fs-5">
             This proposal outlines a strategy to enhance Wells Fargo’s digital banking experience,
             focusing on security, accessibility, and customer engagement.
           </p>
         </div>
-        <div class="col-md-6 d-flex justify-content-center">
+        <div class="col-lg-6 d-flex justify-content-center">
           <!-- Card listing key objectives -->
-          <div class="card shadow-sm p-4">
-            <h4>Key Objectives</h4>
-            <ul class="mb-0">
-              <li>Improve mobile banking features</li>
-              <li>Enhance data security</li>
-              <li>Expand digital customer support</li>
+          <div class="card shadow-lg border-0 p-4" style="max-width: 350px;">
+            <h4 class="mb-3 text-danger">Key Objectives</h4>
+            <ul class="mb-0 list-unstyled fs-6">
+              <li class="mb-2"><span class="text-success">&#10003;</span> Improve mobile banking features</li>
+              <li class="mb-2"><span class="text-success">&#10003;</span> Enhance data security</li>
+              <li><span class="text-success">&#10003;</span> Expand digital customer support</li>
             </ul>
           </div>
         </div>
@@ -72,34 +72,37 @@
     </section>
 
     <!-- Parallax Section: Strategy -->
-    <section class="parallax bg-strategy d-flex align-items-center text-center text-white position-relative fade-in" aria-label="Strategy section">
+    <section class="parallax bg-strategy d-flex align-items-center text-center text-white position-relative fade-in" aria-label="Strategy section" style="min-height:40vh;">
       <div class="parallax-overlay"></div>
       <div class="container">
         <!-- Strategy heading and description -->
-        <h2 class="fw-bold">Strategy</h2>
+        <h2 class="fw-bold mb-3">Strategy</h2>
         <p class="lead">Leveraging AI and secure cloud infrastructure to streamline operations.</p>
       </div>
     </section>
 
     <!-- Deliverables Section -->
     <section id="deliverables" class="container py-5 fade-in" aria-label="Deliverables">
-      <h2 class="fw-bold text-center mb-4">Deliverables</h2>
+      <h2 class="fw-bold text-center mb-5">Deliverables</h2>
       <div class="row g-4">
         <!-- Each deliverable is in a card -->
         <div class="col-md-4 d-flex">
-          <div class="card flex-fill p-3 text-center">
+          <div class="card flex-fill p-4 text-center border-0 shadow-sm h-100">
+            <div class="mb-3"><span class="display-6 text-danger">&#128241;</span></div>
             <h5>Mobile App Upgrade</h5>
             <p>Redesign mobile banking with enhanced UX and biometric security.</p>
           </div>
         </div>
         <div class="col-md-4 d-flex">
-          <div class="card flex-fill p-3 text-center">
+          <div class="card flex-fill p-4 text-center border-0 shadow-sm h-100">
+            <div class="mb-3"><span class="display-6 text-danger">&#129302;</span></div>
             <h5>AI Chatbot</h5>
             <p>24/7 intelligent support integrated with customer accounts.</p>
           </div>
         </div>
         <div class="col-md-4 d-flex">
-          <div class="card flex-fill p-3 text-center">
+          <div class="card flex-fill p-4 text-center border-0 shadow-sm h-100">
+            <div class="mb-3"><span class="display-6 text-danger">&#9729;&#65039;</span></div>
             <h5>Cloud Migration</h5>
             <p>Secure transition to cloud infrastructure for scalability.</p>
           </div>
@@ -108,11 +111,11 @@
     </section>
 
     <!-- Parallax Section: Timeline -->
-    <section class="parallax bg-timeline d-flex align-items-center text-center text-white position-relative fade-in" aria-label="Timeline section">
+    <section class="parallax bg-timeline d-flex align-items-center text-center text-white position-relative fade-in" aria-label="Timeline section" style="min-height:40vh;">
       <div class="parallax-overlay"></div>
       <div class="container">
         <!-- Timeline heading and description -->
-        <h2 class="fw-bold">Timeline</h2>
+        <h2 class="fw-bold mb-3">Timeline</h2>
         <p class="lead">A phased 12-month rollout with measurable milestones.</p>
       </div>
     </section>
@@ -153,7 +156,7 @@
       <h2 class="fw-bold mb-3">Contact</h2>
       <p>For more details, please reach out to our project team.</p>
       <!-- Button to request the full proposal -->
-      <a href="#" class="btn btn-primary" aria-label="Request Full Proposal" data-bs-toggle="modal" data-bs-target="#proposalModal">Request Full Proposal</a>
+      <a href="#" class="btn btn-primary btn-lg shadow" aria-label="Request Full Proposal" data-bs-toggle="modal" data-bs-target="#proposalModal">Request Full Proposal</a>
     </section>
   </main>
 
@@ -189,11 +192,8 @@
   <!-- Bootstrap JS and Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="custom.js"></script>
-  <script>
-    // Fade-in effect for sections on scroll
-    document.addEventListener('DOMContentLoaded', function() {
-      const fadeEls = document.querySelectorAll('.fade-in');
-      const observer = new IntersectionObserver(entries => {
+</body>
+</html>
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.style.animationDelay = "0.1s";

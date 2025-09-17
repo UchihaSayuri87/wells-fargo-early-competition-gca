@@ -55,3 +55,36 @@ document.addEventListener('DOMContentLoaded', function() {
     bootstrap.ScrollSpy.getInstance(dataSpyEl) || new bootstrap.ScrollSpy(dataSpyEl);
   });
 });
+
+// Carousel controls (example for horizontal scroll)
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.wf-carousel-track');
+  if (carousel) {
+    document.querySelectorAll('.wf-carousel-arrow').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const dir = this.classList.contains('right') ? 1 : -1;
+        carousel.scrollBy({ left: dir * 200, behavior: 'smooth' });
+      });
+    });
+  }
+});
+
+// Modal ARIA live feedback
+document.addEventListener('DOMContentLoaded', function() {
+  const modalForm = document.querySelector('#proposalModal form');
+  const liveRegion = document.getElementById('modal-live-region');
+  if (modalForm && liveRegion) {
+    modalForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      modalForm.querySelector('button[type="submit"]').disabled = true;
+      modalForm.querySelector('button[type="submit"]').textContent = "Sending...";
+      setTimeout(() => {
+        modalForm.querySelector('button[type="submit"]').textContent = "Send Proposal";
+        modalForm.querySelector('button[type="submit"]').disabled = false;
+        bootstrap.Modal.getInstance(document.getElementById('proposalModal')).hide();
+        liveRegion.textContent = 'Thank you! The full proposal will be sent to your email soon.';
+        setTimeout(() => { liveRegion.textContent = ''; }, 4000);
+      }, 1200);
+    });
+  }
+});

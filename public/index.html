@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags for SEO and responsiveness -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon for browser tab -->
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="theme-color" content="#c40404" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <meta name="robots" content="index,follow" />
+    <!-- Google Analytics (replace UA-XXXXX-Y with your ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-XXXXX-Y');
+    </script>
     <title>Wells Fargo Innovation Challenge</title>
+    <!-- SEO and social sharing metadata -->
     <meta name="description" content="Wells Fargo Innovation Challenge: Empowering the Future of Financial Services" />
     <meta property="og:title" content="Wells Fargo Innovation Challenge" />
     <meta property="og:description" content="Join Wells Fargo to innovate and shape the future of banking technology." />
     <meta property="og:image" content="%PUBLIC_URL%/wells-fargo-logo.png" />
+    <style>
+      /* Subtle fade-in for page load */
+      body { opacity: 0; transition: opacity 0.5s; }
+      body.wf-loaded { opacity: 1; }
+    </style>
     <!-- ...existing code... -->
   </head>
   <body>
+    <!-- Language Switcher (placeholder) -->
+    <nav aria-label="Language switcher" style="position:absolute;top:0.5rem;right:1rem;z-index:999;">
+      <button aria-label="Switch to English" lang="en" style="margin-right:0.5rem;">EN</button>
+      <button aria-label="Switch to Spanish" lang="es">ES</button>
+    </nav>
+    <!-- Fallback for users with JavaScript disabled -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- React app root -->
     <div id="root"></div>
+    <script>
+      // Fade in page on load
+      window.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('wf-loaded');
+      });
+    </script>
     <!-- ...existing code... -->
   </body>
 </html>

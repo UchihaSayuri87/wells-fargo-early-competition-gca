@@ -1,86 +1,73 @@
 # Wells Fargo Project Proposal
 
-Project for Wells Fargo Early Competition x Global Career Accelerator
+A professional, visually appealing, and responsive website for the Wells Fargo Early Competition and Innovation Challenge.
 
-## How to Preview
+---
 
-1. Start a simple HTTP server:
-   ```
-   python3 -m http.server 8080
-   ```
-2. Open the preview in your browser:
-   ```
-   $BROWSER http://localhost:8080
-   ```
+## ✨ Features
 
-## How to Edit
+- **Wells Fargo branding and color theme**
+- **Responsive, accessible layout for all devices**
+- **Animated parallax hero and section backgrounds**
+- **Sticky navigation bar with scrollspy highlighting**
+- **Animated fade-in sections and page transitions**
+- **FAQ accordion and modal contact form**
+- **Back-to-top button for easy navigation**
+- **SEO and social metadata**
+- **Modular, maintainable code structure**
+- **Card hover effects and section dividers**
+- **Subtle animated backgrounds and improved whitespace**
 
-- Edit `index.html` for structure and content.
-- Edit `style.css` for styles.
-- Edit `script.js` for interactivity.
+---
 
-## Learning Goals
+## 🚀 Preview
 
-- Understand semantic HTML structure.
-- Learn how to use Bootstrap for layout and components.
-- Practice writing accessible and well-commented code.
-- Experiment with CSS parallax effects and responsive design.
-- Add simple JavaScript for interactivity.
-
-## Error Checking
-
-To periodically check for errors during development, consider:
-- Validating your HTML and CSS using online validators (e.g., [W3C HTML Validator](https://validator.w3.org/)).
-- Checking the browser console for JavaScript errors.
-
-## Prompt Ideas
-
-Here are some ideas to help you get started or extend the project:
-
-- Add a new section to the proposal (e.g., "Risks", "Budget", or "Team").
-- Change the background images or try different parallax effects.
-- Make the site more interactive with JavaScript (e.g., add a modal, alert, or dynamic content).
-- Improve accessibility by adding more ARIA roles or keyboard navigation.
-- Customize the color scheme or typography in `style.css`.
-- Add a form to the Contact section and handle its submission with JavaScript.
-- Use Bootstrap components (like navbars, accordions, or carousels) to enhance the layout.
-- Add animations or transitions to elements on scroll.
-- Validate the HTML and CSS and fix any issues found.
-- Document your changes and explain your reasoning in the Student Notes section.
-
-Feel free to come up with your own ideas and experiment!
-
-# Wells Fargo Innovation Challenge
-
-A professional, responsive React application for the Wells Fargo Innovation Challenge.
-
-## Features
-
-- Wells Fargo branding and theme
-- Responsive design for all devices
-- SEO and social metadata
-- Modular, accessible React components
-- Easy to extend for new sections or features
-
-## Setup
+To preview locally:
 
 ```bash
-npm install
-npm start
+python3 -m http.server 8080
+```
+Then open in your browser:
+```bash
+$BROWSER http://localhost:8080
 ```
 
-## Project Structure
+---
 
-- `src/App.js` — Main React app
-- `src/App.css` — App styles
-- `public/index.html` — HTML template and metadata
-- `public/wells-fargo-logo.png` — Logo asset
+## 📁 Project Structure
 
-## Customization
+- `index.html` — Main HTML structure and content
+- `style.css` — Parallax and Bootstrap customizations
+- `custom.css` — Custom styles for layout, animation, and UI
+- `custom.js` — All interactive JavaScript (animations, modal, scrollspy, etc.)
+- `public/index.html` — React app entry (if using React)
+- `src/App.js`, `src/App.css` — React app (if using React)
+- `wells-fargo-logo.png` — Logo asset
 
-- Add partners in `src/App.js` (`PartnersSection`)
-- Update branding in `src/App.css`
-- Add more sections/components as needed
+---
+
+## 🛠️ Customization
+
+- Edit `index.html` for content and structure
+- Edit `custom.css` for styles and branding
+- Edit `custom.js` for interactivity and enhancements
+- Add or update sections (e.g., FAQ, Deliverables, Timeline) as needed
+
+---
+
+## ♿ Accessibility & Best Practices
+
+- Uses semantic HTML5 elements and ARIA labels
+- All images have descriptive `alt` text
+- Keyboard and screen reader friendly navigation and forms
+
+---
+
+## 🌐 Deployment
+
+You can deploy this site on any static hosting (GitHub Pages, Netlify, Vercel, etc.).
+
+---
 
 ## License
 
