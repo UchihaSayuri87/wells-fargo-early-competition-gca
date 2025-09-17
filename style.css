@@ -60,6 +60,7 @@ html {
   border-radius: 12px;
   transition: transform 0.2s ease;
   outline: none;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 .card:hover {
   transform: translateY(-6px);
@@ -69,15 +70,67 @@ html {
   outline: 2px solid #0d6efd;
 }
 
-/* Focus styles for buttons and links
-   Improves accessibility for keyboard users */
-.btn:focus, a:focus {
-  outline: 2px solid #0d6efd;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 3px #0d6efd66;
+/* Add more spacing between sections */
+section {
+  margin-bottom: 2.5rem;
+}
+
+/* Custom color palette */
+:root {
+  --wf-primary: #b31b1b;
+  --wf-secondary: #f5f5f5;
+  --wf-accent: #ffd700;
+}
+
+/* Enhance buttons with custom colors and transitions */
+.btn-primary {
+  background-color: var(--wf-primary);
+  border-color: var(--wf-primary);
+  color: #fff;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #8c1515;
+  border-color: #8c1515;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(179,27,27,0.15);
+}
+
+.btn-light {
+  color: var(--wf-primary);
+  background-color: var(--wf-accent);
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-light:hover, .btn-light:focus {
+  background-color: #fffbe6;
+  color: #8c1515;
+}
+
+/* Section fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+section, footer {
+  animation: fadeInUp 0.8s ease;
 }
 
 /* Footer styling */
 footer {
   font-size: 14px;
+}
+footer a {
+  color: var(--wf-accent);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: #fff;
 }
