@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-// Navigation bar component
+// Navigation bar for main sections
 function NavBar() {
   return (
     <nav className="wf-navbar">
@@ -33,7 +33,7 @@ function Header() {
 // Introduction section with call-to-action buttons
 function IntroSection() {
   return (
-    <section className="wf-intro">
+    <section className="wf-intro" id="intro">
       <h2>Empowering the Future of Financial Services</h2>
       <p>
         Wells Fargo is committed to fostering innovation and excellence in financial technology. Join us as we collaborate to create impactful solutions that shape the future of banking.
@@ -47,7 +47,7 @@ function IntroSection() {
 function Actions() {
   // Smooth scroll to partners section
   const handleLearnMore = () => {
-    const partnersSection = document.querySelector('.wf-partners');
+    const partnersSection = document.getElementById('partners');
     if (partnersSection) {
       partnersSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -90,7 +90,7 @@ function PartnersSection() {
   ];
 
   return (
-    <section className="wf-partners">
+    <section className="wf-partners" id="partners">
       <h3>Our Partners</h3>
       <div className="wf-partner-logos">
         {partners.map((partner, idx) => (
@@ -113,6 +113,15 @@ function PartnersSection() {
   );
 }
 
+// Footer
+function Footer() {
+  return (
+    <footer className="wf-footer">
+      &copy; {new Date().getFullYear()} Wells Fargo. All rights reserved.
+    </footer>
+  );
+}
+
 // Main App
 function App() {
   return (
@@ -123,7 +132,7 @@ function App() {
         <IntroSection />
         <PartnersSection />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
