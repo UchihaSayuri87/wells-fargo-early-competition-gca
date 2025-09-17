@@ -1,9 +1,8 @@
 import React, { useRef, useState, useEffect, createContext, useContext } from 'react';
 import './App.css';
-// import { motion } from 'framer-motion'; // Uncomment if using Framer Motion
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-// --- Language Context ---
+// --- Language Context (English only) ---
 const LangContext = createContext();
 const translations = {
   en: {
@@ -17,302 +16,16 @@ const translations = {
     sitemap: "Sitemap",
     notfound: "Page Not Found",
     backhome: "Back to Home"
-  },
-  zh: {
-    skip: "跳到主要内容",
-    testimonials: "合作伙伴评价",
-    team: "团队介绍",
-    clients: "我们的客户与合作伙伴",
-    contact: "联系",
-    feedback: "反馈",
-    print: "打印提案",
-    sitemap: "网站地图",
-    notfound: "页面未找到",
-    backhome: "返回首页"
-  },
-  hi: {
-    skip: "मुख्य सामग्री पर जाएं",
-    testimonials: "हमारे साझेदार क्या कहते हैं",
-    team: "टीम से मिलें",
-    clients: "हमारे ग्राहक और साझेदार",
-    contact: "संपर्क करें",
-    feedback: "प्रतिक्रिया",
-    print: "प्रस्ताव प्रिंट करें",
-    sitemap: "साइटमैप",
-    notfound: "पृष्ठ नहीं मिला",
-    backhome: "मुख्य पृष्ठ पर लौटें"
-  },
-  es: {
-    skip: "Saltar al contenido principal",
-    testimonials: "Lo que dicen nuestros socios",
-    team: "Conoce al equipo",
-    clients: "Nuestros clientes y socios",
-    contact: "Contacto",
-    feedback: "Comentarios",
-    print: "Imprimir propuesta",
-    sitemap: "Mapa del sitio",
-    notfound: "Página no encontrada",
-    backhome: "Volver al inicio"
-  },
-  fr: {
-    skip: "Aller au contenu principal",
-    testimonials: "Ce que disent nos partenaires",
-    team: "Rencontrez l'équipe",
-    clients: "Nos clients et partenaires",
-    contact: "Contact",
-    feedback: "Retour",
-    print: "Imprimer la proposition",
-    sitemap: "Plan du site",
-    notfound: "Page non trouvée",
-    backhome: "Retour à l'accueil"
-  },
-  ar: {
-    skip: "انتقل إلى المحتوى الرئيسي",
-    testimonials: "ماذا يقول شركاؤنا",
-    team: "تعرف على الفريق",
-    clients: "عملاؤنا وشركاؤنا",
-    contact: "اتصل",
-    feedback: "ملاحظات",
-    print: "طباعة الاقتراح",
-    sitemap: "خريطة الموقع",
-    notfound: "الصفحة غير موجودة",
-    backhome: "العودة إلى الصفحة الرئيسية"
-  },
-  bn: {
-    skip: "প্রধান বিষয়বস্তুতে যান",
-    testimonials: "আমাদের অংশীদাররা কী বলেন",
-    team: "দলকে জানুন",
-    clients: "আমাদের ক্লায়েন্ট ও অংশীদার",
-    contact: "যোগাযোগ",
-    feedback: "প্রতিক্রিয়া",
-    print: "প্রস্তাব মুদ্রণ করুন",
-    sitemap: "সাইটম্যাপ",
-    notfound: "পৃষ্ঠা পাওয়া যায়নি",
-    backhome: "প্রধান পাতায় ফিরে যান"
-  },
-  ru: {
-    skip: "Перейти к основному содержанию",
-    testimonials: "Что говорят наши партнеры",
-    team: "Познакомьтесь с командой",
-    clients: "Наши клиенты и партнеры",
-    contact: "Контакт",
-    feedback: "Обратная связь",
-    print: "Распечатать предложение",
-    sitemap: "Карта сайта",
-    notfound: "Страница не найдена",
-    backhome: "Вернуться на главную"
-  },
-  pt: {
-    skip: "Ir para o conteúdo principal",
-    testimonials: "O que nossos parceiros dizem",
-    team: "Conheça a equipe",
-    clients: "Nossos clientes e parceiros",
-    contact: "Contato",
-    feedback: "Feedback",
-    print: "Imprimir proposta",
-    sitemap: "Mapa do site",
-    notfound: "Página não encontrada",
-    backhome: "Voltar para o início"
-  },
-  ur: {
-    skip: "مرکزی مواد پر جائیں",
-    testimonials: "ہمارے شراکت دار کیا کہتے ہیں",
-    team: "ٹیم سے ملیں",
-    clients: "ہمارے کلائنٹس اور شراکت دار",
-    contact: "رابطہ کریں",
-    feedback: "رائے",
-    print: "تجویز پرنٹ کریں",
-    sitemap: "سائٹ کا نقشہ",
-    notfound: "صفحہ نہیں ملا",
-    backhome: "مرکزی صفحہ پر واپس جائیں"
-  },
-  ja: {
-    skip: "メインコンテンツへスキップ",
-    testimonials: "パートナーの声",
-    team: "チーム紹介",
-    clients: "クライアントとパートナー",
-    contact: "お問い合わせ",
-    feedback: "フィードバック",
-    print: "提案書を印刷",
-    sitemap: "サイトマップ",
-    notfound: "ページが見つかりません",
-    backhome: "ホームに戻る"
-  },
-  de: {
-    skip: "Zum Hauptinhalt springen",
-    testimonials: "Was unsere Partner sagen",
-    team: "Das Team kennenlernen",
-    clients: "Unsere Kunden & Partner",
-    contact: "Kontakt",
-    feedback: "Feedback",
-    print: "Vorschlag drucken",
-    sitemap: "Seitenverzeichnis",
-    notfound: "Seite nicht gefunden",
-    backhome: "Zurück zur Startseite"
-  },
-  it: {
-    skip: "Vai al contenuto principale",
-    testimonials: "Cosa dicono i nostri partner",
-    team: "Incontra il team",
-    clients: "I nostri clienti e partner",
-    contact: "Contatto",
-    feedback: "Feedback",
-    print: "Stampa proposta",
-    sitemap: "Mappa del sito",
-    notfound: "Pagina non trovata",
-    backhome: "Torna alla home"
-  },
-  nl: {
-    skip: "Ga naar hoofdinhoud",
-    testimonials: "Wat onze partners zeggen",
-    team: "Ontmoet het team",
-    clients: "Onze klanten en partners",
-    contact: "Contact",
-    feedback: "Feedback",
-    print: "Voorstel afdrukken",
-    sitemap: "Sitemap",
-    notfound: "Pagina niet gevonden",
-    backhome: "Terug naar home"
-  },
-  pl: {
-    skip: "Przejdź do głównej treści",
-    testimonials: "Co mówią nasi partnerzy",
-    team: "Poznaj zespół",
-    clients: "Nasi klienci i partnerzy",
-    contact: "Kontakt",
-    feedback: "Opinia",
-    print: "Drukuj propozycję",
-    sitemap: "Mapa strony",
-    notfound: "Strona nie znaleziona",
-    backhome: "Powrót do strony głównej"
-  },
-  tr: {
-    skip: "Ana içeriğe atla",
-    testimonials: "Ortaklarımız ne diyor",
-    team: "Takımla tanışın",
-    clients: "Müşterilerimiz ve ortaklarımız",
-    contact: "İletişim",
-    feedback: "Geri bildirim",
-    print: "Teklifi yazdır",
-    sitemap: "Site haritası",
-    notfound: "Sayfa bulunamadı",
-    backhome: "Ana sayfaya dön"
-  },
-  uk: {
-    skip: "Перейти до основного змісту",
-    testimonials: "Що кажуть наші партнери",
-    team: "Познайомтеся з командою",
-    clients: "Наші клієнти та партнери",
-    contact: "Контакт",
-    feedback: "Відгук",
-    print: "Друкувати пропозицію",
-    sitemap: "Мапа сайту",
-    notfound: "Сторінку не знайдено",
-    backhome: "Повернутися на головну"
-  },
-  ro: {
-    skip: "Sari la conținutul principal",
-    testimonials: "Ce spun partenerii noștri",
-    team: "Cunoaște echipa",
-    clients: "Clienții și partenerii noștri",
-    contact: "Contact",
-    feedback: "Feedback",
-    print: "Printează propunerea",
-    sitemap: "Harta site-ului",
-    notfound: "Pagina nu a fost găsită",
-    backhome: "Înapoi la pagina principală"
-  },
-  el: {
-    skip: "Μετάβαση στο κύριο περιεχόμενο",
-    testimonials: "Τι λένε οι συνεργάτες μας",
-    team: "Γνωρίστε την ομάδα",
-    clients: "Οι πελάτες και οι συνεργάτες μας",
-    contact: "Επικοινωνία",
-    feedback: "Ανατροφοδότηση",
-    print: "Εκτύπωση πρότασης",
-    sitemap: "Χάρτης ιστοτόπου",
-    notfound: "Η σελίδα δεν βρέθηκε",
-    backhome: "Επιστροφή στην αρχική"
-  },
-  cs: {
-    skip: "Přejít na hlavní obsah",
-    testimonials: "Co říkají naši partneři",
-    team: "Seznamte se s týmem",
-    clients: "Naši klienti a partneři",
-    contact: "Kontakt",
-    feedback: "Zpětná vazba",
-    print: "Tisknout návrh",
-    sitemap: "Mapa stránek",
-    notfound: "Stránka nenalezena",
-    backhome: "Zpět na hlavní stránku"
-  },
-  sv: {
-    skip: "Hoppa till huvudinnehåll",
-    testimonials: "Vad våra partners säger",
-    team: "Möt teamet",
-    clients: "Våra kunder och partners",
-    contact: "Kontakt",
-    feedback: "Feedback",
-    print: "Skriv ut förslag",
-    sitemap: "Webbplatskarta",
-    notfound: "Sidan hittades inte",
-    backhome: "Tillbaka till startsidan"
   }
 };
 function useLang() {
   return useContext(LangContext);
 }
 function LanguageSwitcher() {
-  const { lang, setLang } = useLang();
-  // List of all supported languages
-  const langs = [
-    { code: 'en', label: 'EN', native: 'English' },
-    { code: 'zh', label: '中文', native: '中文 (Chinese)' },
-    { code: 'hi', label: 'हिन्दी', native: 'हिन्दी (Hindi)' },
-    { code: 'es', label: 'ES', native: 'Español' },
-    { code: 'fr', label: 'FR', native: 'Français' },
-    { code: 'ar', label: 'العربية', native: 'العربية (Arabic)' },
-    { code: 'bn', label: 'বাংলা', native: 'বাংলা (Bengali)' },
-    { code: 'ru', label: 'РУС', native: 'Русский (Russian)' },
-    { code: 'pt', label: 'PT', native: 'Português' },
-    { code: 'ur', label: 'اردو', native: 'اردو (Urdu)' },
-    { code: 'ja', label: '日本語', native: '日本語 (Japanese)' },
-    { code: 'de', label: 'DE', native: 'Deutsch (German)' },
-    { code: 'it', label: 'IT', native: 'Italiano (Italian)' },
-    { code: 'nl', label: 'NL', native: 'Nederlands (Dutch)' },
-    { code: 'pl', label: 'PL', native: 'Polski (Polish)' },
-    { code: 'tr', label: 'TR', native: 'Türkçe (Turkish)' },
-    { code: 'uk', label: 'UK', native: 'Українська (Ukrainian)' },
-    { code: 'ro', label: 'RO', native: 'Română (Romanian)' },
-    { code: 'el', label: 'ΕΛ', native: 'Ελληνικά (Greek)' },
-    { code: 'cs', label: 'CS', native: 'Čeština (Czech)' },
-    { code: 'sv', label: 'SV', native: 'Svenska (Swedish)' }
-  ];
-  return (
-    <nav aria-label="Language switcher" className="wf-lang-switcher">
-      {langs.map(l => (
-        <button
-          key={l.code}
-          onClick={() => setLang(l.code)}
-          aria-label={`Switch to ${l.native}`}
-          lang={l.code}
-          disabled={lang === l.code}
-          style={{
-            fontWeight: lang === l.code ? 'bold' : 'normal',
-            outline: lang === l.code ? '2px solid #c40404' : undefined,
-            background: lang === l.code ? 'var(--wf-red)' : undefined,
-            color: lang === l.code ? 'var(--wf-gold)' : undefined,
-            margin: '0 0.15em'
-          }}
-        >
-          {l.label}
-        </button>
-      ))}
-    </nav>
-  );
+  return null;
 }
 
-// --- Skip Link ---
+// --- Accessibility: Skip Link ---
 function SkipLink() {
   const { lang } = useLang();
   return (
@@ -346,8 +59,12 @@ function ProgressBar() {
 function PrintButton() {
   const { lang } = useLang();
   return (
-    <button className="wf-btn wf-btn-secondary" style={{position:'fixed',bottom:'1.5rem',right:'1.5rem',zIndex:1000}}
-      onClick={() => window.print()} aria-label={translations[lang].print}>
+    <button
+      className="wf-btn wf-btn-secondary"
+      style={{ position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 1000 }}
+      onClick={() => window.print()}
+      aria-label={translations[lang].print}
+    >
       🖨️ {translations[lang].print}
     </button>
   );
@@ -360,16 +77,18 @@ function FeedbackWidget() {
   const [sent, setSent] = useState(false);
   const { lang } = useLang();
   return (
-    <div style={{position:'fixed',bottom:'1.5rem',left:'1.5rem',zIndex:1000}}>
-      <button className="wf-btn" aria-label={translations[lang].feedback} onClick={() => setOpen(o=>!o)}>
+    <div style={{ position: 'fixed', bottom: '1.5rem', left: '1.5rem', zIndex: 1000 }}>
+      <button className="wf-btn" aria-label={translations[lang].feedback} onClick={() => setOpen(o => !o)}>
         💬 {translations[lang].feedback}
       </button>
       {open && (
-        <form className="wf-card" style={{marginTop:'0.5rem',minWidth:220}} onSubmit={e=>{
-          e.preventDefault(); setSent(true); setTimeout(()=>{setOpen(false);setSent(false);setMsg('');},1500);
+        <form className="wf-card" style={{ marginTop: '0.5rem', minWidth: 220 }} onSubmit={e => {
+          e.preventDefault();
+          setSent(true);
+          setTimeout(() => { setOpen(false); setSent(false); setMsg(''); }, 1500);
         }}>
-          <label htmlFor="wf-feedback" style={{fontWeight:600}}>Your feedback:</label>
-          <textarea id="wf-feedback" rows={3} value={msg} onChange={e=>setMsg(e.target.value)} required style={{width:'100%',margin:'0.5em 0'}} />
+          <label htmlFor="wf-feedback" style={{ fontWeight: 600 }}>Your feedback:</label>
+          <textarea id="wf-feedback" rows={3} value={msg} onChange={e => setMsg(e.target.value)} required style={{ width: '100%', margin: '0.5em 0' }} />
           <button className="wf-btn" type="submit" disabled={sent || !msg.trim()}>{sent ? "Sent!" : "Send"}</button>
         </form>
       )}
@@ -381,7 +100,7 @@ function FeedbackWidget() {
 function SitemapLink() {
   const { lang } = useLang();
   return (
-    <a href="/sitemap.xml" className="wf-btn wf-btn-secondary" style={{marginLeft:'1rem'}} target="_blank" rel="noopener noreferrer">
+    <a href="/sitemap.xml" className="wf-btn wf-btn-secondary" style={{ marginLeft: '1rem' }} target="_blank" rel="noopener noreferrer">
       {translations[lang].sitemap}
     </a>
   );
@@ -391,35 +110,26 @@ function SitemapLink() {
 function NotFound() {
   const { lang } = useLang();
   return (
-    <div className="wf-main" style={{textAlign:'center',padding:'4rem 1rem'}}>
+    <div className="wf-main" style={{ textAlign: 'center', padding: '4rem 1rem' }}>
       <h2>404 - {translations[lang].notfound}</h2>
       <Link to="/" className="wf-btn">{translations[lang].backhome}</Link>
     </div>
   );
 }
 
-// --- Section Animation Wrapper (Framer Motion or fallback) ---
+// --- Section Animation Wrapper ---
 function Section({ children }) {
-  // Uncomment below if using Framer Motion
-  // return <motion.section initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:0.6}}>{children}</motion.section>;
-  return <section style={{transition:'opacity 0.6s, transform 0.6s'}}>{children}</section>;
+  return <section style={{ transition: 'opacity 0.6s, transform 0.6s' }}>{children}</section>;
 }
 
-// --- Enhanced Contact Form with email sending via Formspree (or similar service) ---
+// --- Contact Form (Demo, no backend) ---
 function ContactForm() {
   const [email, setEmail] = useState('');
   const [msg, setMsg] = useState('');
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const { lang } = useLang();
-
-  // You can use Formspree, EmailJS, or a backend endpoint for real email sending.
-  // Here, we'll use Formspree for demonstration.
-  // Replace the action URL with your own Formspree endpoint if needed.
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdoqzvbp"; // Example endpoint
-
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     setError('');
     setSuccess('');
@@ -429,66 +139,46 @@ function ContactForm() {
       return;
     }
     setSent(true);
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Accept": "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          message: msg,
-          _subject: "Wells Fargo Contact Inquiry",
-          _replyto: email,
-          to: "alissamarierowell@gmail.com"
-        })
-      });
-      if (res.ok) {
-        setSuccess("Your inquiry has been sent! We'll get back to you soon.");
-        window.setLiveRegion && window.setLiveRegion("Your inquiry has been sent! We'll get back to you soon.");
-        setEmail('');
-        setMsg('');
-      } else {
-        setError("There was a problem sending your message. Please try again later.");
-        window.setLiveRegion && window.setLiveRegion("There was a problem sending your message. Please try again later.");
-      }
-    } catch {
-      setError("There was a problem sending your message. Please try again later.");
-      window.setLiveRegion && window.setLiveRegion("There was a problem sending your message. Please try again later.");
-    }
-    setSent(false);
+    setTimeout(() => {
+      setSuccess("Your inquiry has been received! (Demo: No email sent)");
+      window.setLiveRegion && window.setLiveRegion("Your inquiry has been received! (Demo: No email sent)");
+      setEmail('');
+      setMsg('');
+      setSent(false);
+    }, 1200);
   }
-
   return (
-    <form className="wf-card" style={{maxWidth:400,margin:'2rem auto'}} onSubmit={handleSubmit} aria-label="Contact form">
-      <label htmlFor="contact-email" style={{fontWeight:600}}>Email</label>
+    <form className="wf-card" style={{ maxWidth: 400, margin: '2rem auto' }} onSubmit={handleSubmit} aria-label="Contact form">
+      <label htmlFor="contact-email" style={{ fontWeight: 600 }}>Email</label>
       <input
         id="contact-email"
         type="email"
         value={email}
-        onChange={e=>setEmail(e.target.value)}
+        onChange={e => setEmail(e.target.value)}
         required
         aria-invalid={!!error}
         aria-describedby={error ? "contact-email-error" : undefined}
-        style={{width:'100%',margin:'0.5em 0'}}
+        style={{ width: '100%', margin: '0.5em 0' }}
         autoComplete="email"
       />
-      {error && <div id="contact-email-error" style={{color:'#c40404'}} role="alert">{error}</div>}
-      <label htmlFor="contact-msg" style={{fontWeight:600}}>Message</label>
+      {error && <div id="contact-email-error" style={{ color: '#c40404' }} role="alert">{error}</div>}
+      <label htmlFor="contact-msg" style={{ fontWeight: 600 }}>Message</label>
       <textarea
         id="contact-msg"
         rows={3}
         value={msg}
-        onChange={e=>setMsg(e.target.value)}
-        style={{width:'100%',margin:'0.5em 0'}}
+        onChange={e => setMsg(e.target.value)}
+        style={{ width: '100%', margin: '0.5em 0' }}
         required
         aria-required="true"
       />
       <button className="wf-btn" type="submit" disabled={sent}>{sent ? "Sending..." : "Send"}</button>
-      {success && <div style={{color:'#228B22',marginTop:'1em'}} role="status">{success}</div>}
+      {success && <div style={{ color: '#228B22', marginTop: '1em' }} role="status">{success}</div>}
     </form>
   );
 }
 
-// --- Alerts Section (for important updates)
+// --- Alerts Section ---
 function Alerts() {
   return (
     <section className="wf-alerts" aria-label="Alerts">
@@ -503,7 +193,7 @@ function Alerts() {
   );
 }
 
-// --- Blog/News Section
+// --- Blog/News Section ---
 function Blog() {
   const articles = [
     {
@@ -533,50 +223,33 @@ function Blog() {
   );
 }
 
-// --- Hero Section
+// --- Hero Section ---
 function Hero() {
   return (
     <section className="wf-hero" aria-label="Hero">
-      <div style={{marginBottom: '2rem'}}>
-        {/* Example SVG illustration */}
-        <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true" style={{display:'block',margin:'0 auto'}}>
-          <circle cx="60" cy="60" r="55" fill="#ffe066" stroke="#c40404" strokeWidth="4"/>
-          <path d="M40 70 Q60 40 80 70" stroke="#c40404" strokeWidth="4" fill="none"/>
-          <circle cx="60" cy="60" r="8" fill="#c40404"/>
+      <div style={{ marginBottom: '2rem' }}>
+        <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true" style={{ display: 'block', margin: '0 auto' }}>
+          <circle cx="60" cy="60" r="55" fill="#ffe066" stroke="#c40404" strokeWidth="4" />
+          <path d="M40 70 Q60 40 80 70" stroke="#c40404" strokeWidth="4" fill="none" />
+          <circle cx="60" cy="60" r="8" fill="#c40404" />
         </svg>
       </div>
       <h1 className="wf-hero-title">Empowering the Future of Finance</h1>
       <p className="wf-hero-subtitle">
         Join the Wells Fargo Innovation Challenge and help shape tomorrow’s banking technology.
       </p>
-      <a href="#contact" className="wf-btn wf-btn-secondary" style={{marginTop: '1.5rem'}}>Get Involved</a>
+      <a href="#contact" className="wf-btn wf-btn-secondary" style={{ marginTop: '1.5rem' }}>Get Involved</a>
     </section>
   );
 }
 
-// --- Feature Cards Section
+// --- Features Section ---
 function Features() {
   const features = [
-    {
-      icon: "🔒",
-      title: "Security",
-      desc: "Industry-leading security and privacy for all users."
-    },
-    {
-      icon: "💡",
-      title: "Innovation",
-      desc: "Cutting-edge solutions and creative thinking."
-    },
-    {
-      icon: "🤝",
-      title: "Community",
-      desc: "Collaboration and support for every participant."
-    },
-    {
-      icon: "🚀",
-      title: "Growth",
-      desc: "Opportunities for learning and career advancement."
-    }
+    { icon: "🔒", title: "Security", desc: "Industry-leading security and privacy for all users." },
+    { icon: "💡", title: "Innovation", desc: "Cutting-edge solutions and creative thinking." },
+    { icon: "🤝", title: "Community", desc: "Collaboration and support for every participant." },
+    { icon: "🚀", title: "Growth", desc: "Opportunities for learning and career advancement." }
   ];
   return (
     <section className="wf-features" aria-label="Features">
@@ -593,7 +266,7 @@ function Features() {
   );
 }
 
-// --- Timeline Section
+// --- Timeline Section ---
 function Timeline() {
   const events = [
     { date: "May 2024", label: "Challenge Launch" },
@@ -617,29 +290,13 @@ function Timeline() {
   );
 }
 
-// --- FAQ Section
+// --- FAQ Section ---
 function FAQ() {
   const faqs = [
-    {
-      icon: "👥",
-      q: "Who can participate in the Innovation Challenge?",
-      a: "Anyone with a passion for fintech and innovation is welcome to join."
-    },
-    {
-      icon: "💸",
-      q: "Is there a cost to participate?",
-      a: "No, participation is free for all selected teams and individuals."
-    },
-    {
-      icon: "📝",
-      q: "How do I submit my project?",
-      a: "Register and submit your project through our online portal before the deadline."
-    },
-    {
-      icon: "🏆",
-      q: "What are the prizes?",
-      a: "Winners receive cash prizes, mentorship, and the opportunity to collaborate with Wells Fargo."
-    }
+    { icon: "👥", q: "Who can participate in the Innovation Challenge?", a: "Anyone with a passion for fintech and innovation is welcome to join." },
+    { icon: "💸", q: "Is there a cost to participate?", a: "No, participation is free for all selected teams and individuals." },
+    { icon: "📝", q: "How do I submit my project?", a: "Register and submit your project through our online portal before the deadline." },
+    { icon: "🏆", q: "What are the prizes?", a: "Winners receive cash prizes, mentorship, and the opportunity to collaborate with Wells Fargo." }
   ];
   return (
     <section className="wf-faq" aria-label="FAQ">
@@ -656,7 +313,7 @@ function FAQ() {
   );
 }
 
-// --- Statistics/Impact Section
+// --- Impact/Statistics Section ---
 function Impact() {
   const stats = [
     { icon: "👤", value: "500+", label: "Participants" },
@@ -682,9 +339,9 @@ function Impact() {
 // --- Video Section ---
 function VideoSection() {
   return (
-    <section className="wf-video" aria-label="Welcome Video" style={{textAlign:'center',margin:'2.5rem 0'}}>
+    <section className="wf-video" aria-label="Welcome Video" style={{ textAlign: 'center', margin: '2.5rem 0' }}>
       <h2>Welcome from Wells Fargo</h2>
-      <div style={{maxWidth: '560px', margin: '0 auto'}}>
+      <div style={{ maxWidth: '560px', margin: '0 auto' }}>
         <iframe
           width="100%"
           height="315"
@@ -693,7 +350,7 @@ function VideoSection() {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          style={{borderRadius: '12px'}}
+          style={{ borderRadius: '12px' }}
         ></iframe>
       </div>
     </section>
@@ -707,19 +364,19 @@ function NewsletterSignup() {
   return (
     <form
       className="wf-card"
-      style={{maxWidth:320,margin:'2rem auto',padding:'1rem',background:'#fffbe6'}}
-      onSubmit={e => {e.preventDefault(); setSent(true); setTimeout(()=>setSent(false), 2000); setEmail('');}}
+      style={{ maxWidth: 320, margin: '2rem auto', padding: '1rem', background: '#fffbe6' }}
+      onSubmit={e => { e.preventDefault(); setSent(true); setTimeout(() => setSent(false), 2000); setEmail(''); }}
       aria-label="Newsletter signup"
     >
-      <label htmlFor="newsletter-email" style={{fontWeight:600}}>Subscribe to our newsletter:</label>
+      <label htmlFor="newsletter-email" style={{ fontWeight: 600 }}>Subscribe to our newsletter:</label>
       <input
         id="newsletter-email"
         type="email"
         value={email}
-        onChange={e=>setEmail(e.target.value)}
+        onChange={e => setEmail(e.target.value)}
         required
         placeholder="Your email"
-        style={{width:'100%',margin:'0.5em 0'}}
+        style={{ width: '100%', margin: '0.5em 0' }}
         autoComplete="email"
       />
       <button className="wf-btn" type="submit" disabled={sent}>{sent ? "Subscribed!" : "Subscribe"}</button>
@@ -767,22 +424,267 @@ function BackToTop() {
         padding: 0
       }}
       aria-label="Back to top"
-      onClick={() => window.scrollTo({top:0,behavior:'smooth'})}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >↑</button>
   );
 }
 
-// --- Accessibility Controls ---
+// --- Accessibility Controls (Font size) ---
 function AccessibilityControls() {
   const [size, setSize] = useState(18);
   useEffect(() => {
     document.documentElement.style.fontSize = `${size}px`;
   }, [size]);
   return (
-    <div style={{position:'fixed',top:'1rem',left:'1rem',zIndex:2000,background:'#fffbe6',padding:'0.5em 1em',borderRadius:'8px',boxShadow:'0 2px 8px rgba(204,4,4,0.07)'}}>
-      <span style={{marginRight:'0.5em'}}>Font size:</span>
-      <button className="wf-btn" style={{padding:'0.2em 0.7em',fontSize:'1em'}} onClick={()=>setSize(s=>Math.max(14,s-2))} aria-label="Decrease font size">A-</button>
-      <button className="wf-btn" style={{padding:'0.2em 0.7em',fontSize:'1em',marginLeft:'0.3em'}} onClick={()=>setSize(s=>Math.min(24,s+2))} aria-label="Increase font size">A+</button>
+    <div style={{
+      position: 'fixed',
+      top: '1rem',
+      left: '1rem',
+      zIndex: 2000,
+      background: '#fffbe6',
+      padding: '0.5em 1em',
+      borderRadius: '8px',
+      boxShadow: '0 2px 8px rgba(204,4,4,0.07)'
+    }}>
+      <span style={{ marginRight: '0.5em' }}>Font size:</span>
+      <button className="wf-btn" style={{ padding: '0.2em 0.7em', fontSize: '1em' }} onClick={() => setSize(s => Math.max(14, s - 2))} aria-label="Decrease font size">A-</button>
+      <button className="wf-btn" style={{ padding: '0.2em 0.7em', fontSize: '1em', marginLeft: '0.3em' }} onClick={() => setSize(s => Math.min(24, s + 2))} aria-label="Increase font size">A+</button>
+    </div>
+  );
+}
+
+// --- Social Media Links ---
+function SocialLinks() {
+  return (
+    <div className="wf-social-links" aria-label="Wells Fargo Social Media">
+      <a href="https://twitter.com/wellsfargo" aria-label="Twitter" target="_blank" rel="noopener noreferrer">🐦</a>
+      <a href="https://linkedin.com/company/wellsfargo" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">💼</a>
+      <a href="https://facebook.com/wellsfargo" aria-label="Facebook" target="_blank" rel="noopener noreferrer">📘</a>
+    </div>
+  );
+}
+
+// --- Skeleton Loader ---
+function Skeleton({ width = "100%", height = "1.2em" }) {
+  return <div className="wf-skeleton" style={{ width, height }} aria-hidden="true"></div>;
+}
+
+// --- Introduction Section ---
+function IntroSection() {
+  return (
+    <section className="wf-intro" id="intro">
+      <h2>Empowering the Future of Financial Services</h2>
+      <p>
+        Wells Fargo is committed to fostering innovation and excellence in financial technology. Join us as we collaborate to create impactful solutions that shape the future of banking.
+      </p>
+      <Actions />
+    </section>
+  );
+}
+
+// --- Actions for Intro Section ---
+function Actions() {
+  const handleLearnMore = () => {
+    const partnersSection = document.getElementById('partners');
+    if (partnersSection) {
+      partnersSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const handleContact = () => {
+    window.location.href = 'mailto:innovation@wellsfargo.com?subject=Innovation%20Challenge%20Inquiry';
+  };
+  return (
+    <div className="wf-actions">
+      <button className="wf-btn" aria-label="Learn more about the challenge" onClick={handleLearnMore}>Learn More</button>
+      <button className="wf-btn wf-btn-secondary" aria-label="Contact Wells Fargo" onClick={handleContact}>Contact Us</button>
+    </div>
+  );
+}
+
+// --- Partners Section ---
+function PartnersSection() {
+  const partners = [
+    {
+      name: 'Partner Example',
+      logo: '/wells-fargo-logo.png',
+      url: 'https://www.wellsfargo.com/',
+    }
+    // Add more partners as needed
+  ];
+  return (
+    <section className="wf-partners" id="partners">
+      <h3>Our Partners</h3>
+      <div className="wf-partner-logos">
+        {partners.map((partner, idx) => (
+          <a key={idx} href={partner.url} target="_blank" rel="noopener noreferrer" aria-label={partner.name}>
+            <img src={partner.logo} alt={partner.name} className="wf-partner-logo" />
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// --- Testimonials Section ---
+function Testimonials() {
+  const [loading, setLoading] = useState(true);
+  const testimonials = [
+    {
+      quote: "Wells Fargo's innovation challenge helped us rethink our digital strategy.",
+      author: "Jane Doe",
+      role: "VP, Digital Banking",
+      company: "Acme Corp"
+    },
+    {
+      quote: "The collaboration and support from the Wells Fargo team was outstanding.",
+      author: "John Smith",
+      role: "CTO",
+      company: "FinTech Solutions"
+    }
+  ];
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    <section className="wf-testimonials" aria-label="Testimonials">
+      <h2>What Our Partners Say</h2>
+      {loading
+        ? [1, 2].map(i => (
+          <div key={i} className="wf-testimonial">
+            <Skeleton width="80%" /><Skeleton width="40%" />
+          </div>
+        ))
+        : testimonials.map((t, i) => (
+          <div key={i} className="wf-testimonial">
+            <blockquote className="wf-testimonial-quote">"{t.quote}"</blockquote>
+            <div className="wf-testimonial-author">{t.author}</div>
+            <div className="wf-testimonial-role">{t.role}, {t.company}</div>
+          </div>
+        ))}
+    </section>
+  );
+}
+
+// --- Team Section ---
+function Team() {
+  const [loading, setLoading] = useState(true);
+  const team = [
+    {
+      name: "Alice Johnson",
+      role: "Project Lead",
+      photo: "/wells-fargo-logo.png",
+      linkedin: "https://linkedin.com/in/alicejohnson"
+    },
+    {
+      name: "Bob Lee",
+      role: "Lead Developer",
+      photo: "/wells-fargo-logo.png",
+      linkedin: "https://linkedin.com/in/boblee"
+    },
+    {
+      name: "Maria Garcia",
+      role: "UX Designer",
+      photo: "/wells-fargo-logo.png",
+      linkedin: "https://linkedin.com/in/mariagarcia"
+    }
+  ];
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    <section className="wf-team" aria-label="Team">
+      <h2>Meet the Team</h2>
+      <div className="wf-team-list">
+        {loading
+          ? [1, 2, 3].map(i => (
+            <div className="wf-team-member" key={i}>
+              <Skeleton width="80px" height="80px" />
+              <Skeleton width="60%" />
+              <Skeleton width="40%" />
+              <Skeleton width="40%" />
+            </div>
+          ))
+          : team.map((member, i) => (
+            <div className="wf-team-member" key={i}>
+              <img src={member.photo} alt={member.name} className="wf-team-photo" loading="lazy" />
+              <div className="wf-team-name">{member.name}</div>
+              <div className="wf-team-role">{member.role}</div>
+              <a
+                href={member.linkedin}
+                className="wf-team-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`LinkedIn profile of ${member.name}`}
+              >
+                LinkedIn
+              </a>
+            </div>
+          ))}
+      </div>
+    </section>
+  );
+}
+
+// --- Carousel Section (Partners/Clients) ---
+function Carousel() {
+  const carouselRef = useRef(null);
+  const partners = [
+    { name: "Acme Corp", logo: "/wells-fargo-logo.png" },
+    { name: "FinTech Solutions", logo: "/wells-fargo-logo.png" },
+    { name: "NextGen Bank", logo: "/wells-fargo-logo.png" },
+    { name: "SecurePay", logo: "/wells-fargo-logo.png" },
+    { name: "CloudBank", logo: "/wells-fargo-logo.png" }
+  ];
+  const scroll = (dir) => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: dir * 200, behavior: 'smooth' });
+    }
+  };
+  return (
+    <section className="wf-carousel" aria-label="Partners Carousel">
+      <h2>Our Clients & Partners</h2>
+      <button
+        className="wf-carousel-arrow left"
+        aria-label="Scroll left"
+        onClick={() => scroll(-1)}
+        type="button"
+      >&larr;</button>
+      <div className="wf-carousel-track" ref={carouselRef} tabIndex={0} aria-label="Partner logos">
+        {partners.map((p, i) => (
+          <div className="wf-carousel-item" key={i}>
+            <img src={p.logo} alt={p.name} loading="lazy" />
+            <span>{p.name}</span>
+          </div>
+        ))}
+      </div>
+      <button
+        className="wf-carousel-arrow right"
+        aria-label="Scroll right"
+        onClick={() => scroll(1)}
+        type="button"
+      >&rarr;</button>
+    </section>
+  );
+}
+
+// --- Accessible live region for status updates ---
+function LiveRegion() {
+  const [message, setMessage] = useState('');
+  useEffect(() => {
+    window.setLiveRegion = setMessage;
+    return () => { window.setLiveRegion = undefined; };
+  }, []);
+  return (
+    <div
+      id="accessibility-live-region"
+      className="visually-hidden"
+      aria-live="polite"
+      aria-atomic="true"
+      role="status"
+    >
+      {message}
     </div>
   );
 }
@@ -848,332 +750,4 @@ function App() {
   );
 }
 
-// Dark mode toggle
-function DarkModeToggle({ darkMode, setDarkMode }) {
-  return (
-    <button
-      className="wf-btn wf-dark-toggle"
-      aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-      onClick={() => setDarkMode(dm => !dm)}
-    >
-      {darkMode ? "🌞 Light" : "🌙 Dark"}
-    </button>
-  );
-}
-
-// Cookie consent banner
-function CookieConsent() {
-  const [show, setShow] = useState(() => !localStorage.getItem('wf-cookie-consent'));
-  if (!show) return null;
-  return (
-    <div className="wf-cookie-banner" role="dialog" aria-live="polite">
-      <span>
-        This site uses cookies for analytics and improved experience. See our <a href="#">privacy policy</a>.
-      </span>
-      <button className="wf-btn wf-btn-secondary" onClick={() => {
-        localStorage.setItem('wf-cookie-consent', '1');
-        setShow(false);
-      }}>Accept</button>
-    </div>
-  );
-}
-
-// Social media links
-function SocialLinks() {
-  return (
-    <div className="wf-social-links" aria-label="Wells Fargo Social Media">
-      <a href="https://twitter.com/wellsfargo" aria-label="Twitter" target="_blank" rel="noopener noreferrer">🐦</a>
-      <a href="https://linkedin.com/company/wellsfargo" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">💼</a>
-      <a href="https://facebook.com/wellsfargo" aria-label="Facebook" target="_blank" rel="noopener noreferrer">📘</a>
-    </div>
-  );
-}
-
-// Loading skeleton for testimonials/team
-function Skeleton({ width = "100%", height = "1.2em" }) {
-  return <div className="wf-skeleton" style={{ width, height }} aria-hidden="true"></div>;
-}
-
-// Introduction section with call-to-action buttons
-function IntroSection() {
-  return (
-    <section className="wf-intro" id="intro">
-      <h2>Empowering the Future of Financial Services</h2>
-      <p>
-        Wells Fargo is committed to fostering innovation and excellence in financial technology. Join us as we collaborate to create impactful solutions that shape the future of banking.
-      </p>
-      <Actions />
-    </section>
-  );
-}
-
-// Action buttons for intro section
-function Actions() {
-  // Smooth scroll to partners section
-  const handleLearnMore = () => {
-    const partnersSection = document.getElementById('partners');
-    if (partnersSection) {
-      partnersSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Open mail client for contact
-  const handleContact = () => {
-    window.location.href = 'mailto:innovation@wellsfargo.com?subject=Innovation%20Challenge%20Inquiry';
-  };
-
-  return (
-    <div className="wf-actions">
-      <button
-        className="wf-btn"
-        aria-label="Learn more about the challenge"
-        onClick={handleLearnMore}
-      >
-        Learn More
-      </button>
-      <button
-        className="wf-btn wf-btn-secondary"
-        aria-label="Contact Wells Fargo"
-        onClick={handleContact}
-      >
-        Contact Us
-      </button>
-    </div>
-  );
-}
-
-// Partners section with logos and links
-function PartnersSection() {
-  const partners = [
-    {
-      name: 'Partner Example',
-      logo: '/wells-fargo-logo.png',
-      url: 'https://www.wellsfargo.com/',
-    },
-    // ...add more partners as needed...
-  ];
-
-  return (
-    <section className="wf-partners" id="partners">
-      <h3>Our Partners</h3>
-      <div className="wf-partner-logos">
-        {partners.map((partner, idx) => (
-          <a
-            key={idx}
-            href={partner.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={partner.name}
-          >
-            <img
-              src={partner.logo}
-              alt={partner.name}
-              className="wf-partner-logo"
-            />
-          </a>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-// Testimonials Section with loading skeleton
-function Testimonials() {
-  const [loading, setLoading] = useState(true);
-  const testimonials = [
-    {
-      quote: "Wells Fargo's innovation challenge helped us rethink our digital strategy.",
-      author: "Jane Doe",
-      role: "VP, Digital Banking",
-      company: "Acme Corp"
-    },
-    {
-      quote: "The collaboration and support from the Wells Fargo team was outstanding.",
-      author: "John Smith",
-      role: "CTO",
-      company: "FinTech Solutions"
-    }
-  ];
-  useEffect(() => { const t = setTimeout(() => setLoading(false), 800); return () => clearTimeout(t); }, []);
-  return (
-    <section className="wf-testimonials" aria-label="Testimonials">
-      <h2>What Our Partners Say</h2>
-      {loading
-        ? [1, 2].map(i => (
-            <div key={i} className="wf-testimonial">
-              <Skeleton width="80%" /><Skeleton width="40%" />
-            </div>
-          ))
-        : testimonials.map((t, i) => (
-            <div key={i} className="wf-testimonial">
-              <blockquote className="wf-testimonial-quote">"{t.quote}"</blockquote>
-              <div className="wf-testimonial-author">{t.author}</div>
-              <div className="wf-testimonial-role">{t.role}, {t.company}</div>
-            </div>
-          ))}
-    </section>
-  );
-}
-
-// Team Section with loading skeleton
-function Team() {
-  const [loading, setLoading] = useState(true);
-  const team = [
-    {
-      name: "Alice Johnson",
-      role: "Project Lead",
-      photo: "/wells-fargo-logo.png",
-      linkedin: "https://linkedin.com/in/alicejohnson"
-    },
-    {
-      name: "Bob Lee",
-      role: "Lead Developer",
-      photo: "/wells-fargo-logo.png",
-      linkedin: "https://linkedin.com/in/boblee"
-    },
-    {
-      name: "Maria Garcia",
-      role: "UX Designer",
-      photo: "/wells-fargo-logo.png",
-      linkedin: "https://linkedin.com/in/mariagarcia"
-    }
-  ];
-  useEffect(() => { const t = setTimeout(() => setLoading(false), 800); return () => clearTimeout(t); }, []);
-  return (
-    <section className="wf-team" aria-label="Team">
-      <h2>Meet the Team</h2>
-      <div className="wf-team-list">
-        {loading
-          ? [1, 2, 3].map(i => (
-              <div className="wf-team-member" key={i}>
-                <Skeleton width="80px" height="80px" />
-                <Skeleton width="60%" />
-                <Skeleton width="40%" />
-                <Skeleton width="40%" />
-              </div>
-            ))
-          : team.map((member, i) => (
-              <div className="wf-team-member" key={i}>
-                <img src={member.photo} alt={member.name} className="wf-team-photo" loading="lazy" />
-                <div className="wf-team-name">{member.name}</div>
-                <div className="wf-team-role">{member.role}</div>
-                <a
-                  href={member.linkedin}
-                  className="wf-team-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`LinkedIn profile of ${member.name}`}
-                >
-                  LinkedIn
-                </a>
-              </div>
-            ))}
-      </div>
-    </section>
-  );
-}
-
-// Carousel Section (Partners/Clients)
-function Carousel() {
-  const carouselRef = useRef(null);
-  const partners = [
-    { name: "Acme Corp", logo: "/wells-fargo-logo.png" },
-    { name: "FinTech Solutions", logo: "/wells-fargo-logo.png" },
-    { name: "NextGen Bank", logo: "/wells-fargo-logo.png" },
-    { name: "SecurePay", logo: "/wells-fargo-logo.png" },
-    { name: "CloudBank", logo: "/wells-fargo-logo.png" }
-  ];
-  const scroll = (dir) => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: dir * 200, behavior: 'smooth' });
-    }
-  };
-  return (
-    <section className="wf-carousel" aria-label="Partners Carousel">
-      <h2>Our Clients & Partners</h2>
-      <button
-        className="wf-carousel-arrow left"
-        aria-label="Scroll left"
-        onClick={() => scroll(-1)}
-        type="button"
-      >&larr;</button>
-      <div className="wf-carousel-track" ref={carouselRef} tabIndex={0} aria-label="Partner logos">
-        {partners.map((p, i) => (
-          <div className="wf-carousel-item" key={i}>
-            <img src={p.logo} alt={p.name} loading="lazy" />
-            <span>{p.name}</span>
-          </div>
-        ))}
-      </div>
-      <button
-        className="wf-carousel-arrow right"
-        aria-label="Scroll right"
-        onClick={() => scroll(1)}
-        type="button"
-      >&rarr;</button>
-    </section>
-  );
-}
-
-// Accessible live region for status updates (e.g., form submission, errors)
-function LiveRegion() {
-  // This can be used by any component to announce status messages
-  const [message, setMessage] = useState('');
-  // Expose a global setter for accessibility announcements
-  useEffect(() => {
-    window.setLiveRegion = setMessage;
-    return () => { window.setLiveRegion = undefined; };
-  }, []);
-  return (
-    <div
-      id="accessibility-live-region"
-      className="visually-hidden"
-      aria-live="polite"
-      aria-atomic="true"
-      role="status"
-    >
-      {message}
-    </div>
-  );
-}
-
-// Example usage in a form (ContactForm or FeedbackWidget):
-// window.setLiveRegion && window.setLiveRegion("Your message has been sent!");
-            <span>{p.name}</span>
-          </div>
-        ))}
-      </div>
-      <button
-        className="wf-carousel-arrow right"
-        aria-label="Scroll right"
-        onClick={() => scroll(1)}
-        type="button"
-      >&rarr;</button>
-    </section>
-  );
-}
-
-// Accessible live region for status updates (e.g., form submission, errors)
-function LiveRegion() {
-  // This can be used by any component to announce status messages
-  const [message, setMessage] = useState('');
-  // Expose a global setter for accessibility announcements
-  useEffect(() => {
-    window.setLiveRegion = setMessage;
-    return () => { window.setLiveRegion = undefined; };
-  }, []);
-  return (
-    <div
-      id="accessibility-live-region"
-      className="visually-hidden"
-      aria-live="polite"
-      aria-atomic="true"
-      role="status"
-    >
-      {message}
-    </div>
-  );
-}
-
-// Example usage in a form (ContactForm or FeedbackWidget):
-// window.setLiveRegion && window.setLiveRegion("Your message has been sent!");
+export default App;
