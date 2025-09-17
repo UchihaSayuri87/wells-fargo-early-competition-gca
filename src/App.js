@@ -537,6 +537,14 @@ function Blog() {
 function Hero() {
   return (
     <section className="wf-hero" aria-label="Hero">
+      <div style={{marginBottom: '2rem'}}>
+        {/* Example SVG illustration */}
+        <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true" style={{display:'block',margin:'0 auto'}}>
+          <circle cx="60" cy="60" r="55" fill="#ffe066" stroke="#c40404" strokeWidth="4"/>
+          <path d="M40 70 Q60 40 80 70" stroke="#c40404" strokeWidth="4" fill="none"/>
+          <circle cx="60" cy="60" r="8" fill="#c40404"/>
+        </svg>
+      </div>
       <h1 className="wf-hero-title">Empowering the Future of Finance</h1>
       <p className="wf-hero-subtitle">
         Join the Wells Fargo Innovation Challenge and help shape tomorrow’s banking technology.
@@ -613,18 +621,22 @@ function Timeline() {
 function FAQ() {
   const faqs = [
     {
+      icon: "👥",
       q: "Who can participate in the Innovation Challenge?",
       a: "Anyone with a passion for fintech and innovation is welcome to join."
     },
     {
+      icon: "💸",
       q: "Is there a cost to participate?",
       a: "No, participation is free for all selected teams and individuals."
     },
     {
+      icon: "📝",
       q: "How do I submit my project?",
       a: "Register and submit your project through our online portal before the deadline."
     },
     {
+      icon: "🏆",
       q: "What are the prizes?",
       a: "Winners receive cash prizes, mentorship, and the opportunity to collaborate with Wells Fargo."
     }
@@ -635,7 +647,7 @@ function FAQ() {
       <div className="wf-faq-list">
         {faqs.map((f, i) => (
           <details key={i} className="wf-faq-item">
-            <summary className="wf-faq-q">{f.q}</summary>
+            <summary className="wf-faq-q"><span aria-hidden="true">{f.icon}</span> {f.q}</summary>
             <div className="wf-faq-a">{f.a}</div>
           </details>
         ))}
@@ -647,10 +659,10 @@ function FAQ() {
 // --- Statistics/Impact Section
 function Impact() {
   const stats = [
-    { value: "500+", label: "Participants" },
-    { value: "100+", label: "Projects Submitted" },
-    { value: "20", label: "Countries Represented" },
-    { value: "$50K", label: "Total Prizes" }
+    { icon: "👤", value: "500+", label: "Participants" },
+    { icon: "💼", value: "100+", label: "Projects Submitted" },
+    { icon: "🌎", value: "20", label: "Countries Represented" },
+    { icon: "🏅", value: "$50K", label: "Total Prizes" }
   ];
   return (
     <section className="wf-impact" aria-label="Impact">
@@ -658,12 +670,120 @@ function Impact() {
       <div className="wf-impact-list">
         {stats.map((s, i) => (
           <div className="wf-impact-item" key={i}>
-            <div className="wf-impact-value">{s.value}</div>
+            <div className="wf-impact-value"><span aria-hidden="true">{s.icon}</span> {s.value}</div>
             <div className="wf-impact-label">{s.label}</div>
           </div>
         ))}
       </div>
     </section>
+  );
+}
+
+// --- Video Section ---
+function VideoSection() {
+  return (
+    <section className="wf-video" aria-label="Welcome Video" style={{textAlign:'center',margin:'2.5rem 0'}}>
+      <h2>Welcome from Wells Fargo</h2>
+      <div style={{maxWidth: '560px', margin: '0 auto'}}>
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/2Xc9gXyf2G4"
+          title="Welcome Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{borderRadius: '12px'}}
+        ></iframe>
+      </div>
+    </section>
+  );
+}
+
+// --- Newsletter Signup ---
+function NewsletterSignup() {
+  const [email, setEmail] = useState('');
+  const [sent, setSent] = useState(false);
+  return (
+    <form
+      className="wf-card"
+      style={{maxWidth:320,margin:'2rem auto',padding:'1rem',background:'#fffbe6'}}
+      onSubmit={e => {e.preventDefault(); setSent(true); setTimeout(()=>setSent(false), 2000); setEmail('');}}
+      aria-label="Newsletter signup"
+    >
+      <label htmlFor="newsletter-email" style={{fontWeight:600}}>Subscribe to our newsletter:</label>
+      <input
+        id="newsletter-email"
+        type="email"
+        value={email}
+        onChange={e=>setEmail(e.target.value)}
+        required
+        placeholder="Your email"
+        style={{width:'100%',margin:'0.5em 0'}}
+        autoComplete="email"
+      />
+      <button className="wf-btn" type="submit" disabled={sent}>{sent ? "Subscribed!" : "Subscribe"}</button>
+    </form>
+  );
+}
+
+// --- Sticky Navigation Bar ---
+function StickyNavBar() {
+  return (
+    <nav className="wf-navbar wf-navbar-sticky">
+      <ul>
+        <li><a href="#main-content">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  );
+}
+
+// --- Back to Top Button ---
+function BackToTop() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  if (!show) return null;
+  return (
+    <button
+      className="wf-btn"
+      style={{
+        position: 'fixed',
+        bottom: '5rem',
+        right: '1.5rem',
+        zIndex: 1000,
+        borderRadius: '50%',
+        width: '48px',
+        height: '48px',
+        fontSize: '1.5rem',
+        padding: 0
+      }}
+      aria-label="Back to top"
+      onClick={() => window.scrollTo({top:0,behavior:'smooth'})}
+    >↑</button>
+  );
+}
+
+// --- Accessibility Controls ---
+function AccessibilityControls() {
+  const [size, setSize] = useState(18);
+  useEffect(() => {
+    document.documentElement.style.fontSize = `${size}px`;
+  }, [size]);
+  return (
+    <div style={{position:'fixed',top:'1rem',left:'1rem',zIndex:2000,background:'#fffbe6',padding:'0.5em 1em',borderRadius:'8px',boxShadow:'0 2px 8px rgba(204,4,4,0.07)'}}>
+      <span style={{marginRight:'0.5em'}}>Font size:</span>
+      <button className="wf-btn" style={{padding:'0.2em 0.7em',fontSize:'1em'}} onClick={()=>setSize(s=>Math.max(14,s-2))} aria-label="Decrease font size">A-</button>
+      <button className="wf-btn" style={{padding:'0.2em 0.7em',fontSize:'1em',marginLeft:'0.3em'}} onClick={()=>setSize(s=>Math.min(24,s+2))} aria-label="Increase font size">A+</button>
+    </div>
   );
 }
 
@@ -675,9 +795,12 @@ function App() {
       <Router>
         <SkipLink />
         <LanguageSwitcher />
+        <AccessibilityControls />
+        <StickyNavBar />
         <ProgressBar />
         <PrintButton />
         <FeedbackWidget />
+        <BackToTop />
         <LiveRegion />
         <div className="wf-container">
           <header className="wf-header">
@@ -690,6 +813,7 @@ function App() {
             <Route path="/" element={
               <main className="wf-main" id="main-content">
                 <Hero />
+                <VideoSection />
                 <Features />
                 <Impact />
                 <Timeline />
@@ -713,6 +837,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <footer className="wf-footer">
+            <NewsletterSignup />
             <SocialLinks />
             &copy; {new Date().getFullYear()} Wells Fargo. All rights reserved.
             <SitemapLink />

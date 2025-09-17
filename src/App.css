@@ -753,16 +753,54 @@ body::before {
   font-size: 1rem;
 }
 
-/* Utility: Visually hidden for accessibility (e.g., ARIA live regions, alerts) */
-.visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0,0,0,0) !important;
-  border: 0 !important;
+/* Video Section */
+.wf-video {
+  background: #fffbe6;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(204,4,4,0.07);
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Newsletter Signup */
+.wf-footer form.wf-card {
+  background: #fffbe6 !important;
+  box-shadow: 0 2px 8px rgba(204,4,4,0.04);
+  margin-bottom: 2rem;
+}
+
+/* Sticky Navigation Bar */
+.wf-navbar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1500;
+  background: var(--wf-red);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Back to Top Button */
+.wf-btn[aria-label="Back to top"] {
+  background: var(--wf-gold);
+  color: var(--wf-red);
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 8px rgba(204,4,4,0.07);
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.wf-btn[aria-label="Back to top"]:hover,
+.wf-btn[aria-label="Back to top"]:focus {
+  background: var(--wf-red);
+  color: var(--wf-gold);
+}
+
+/* Accessibility Controls */
+[aria-label="Font size:"] {
+  font-size: 1rem;
+  margin-right: 0.5em;
 }
 
 /* --- Print-friendly styles --- */
