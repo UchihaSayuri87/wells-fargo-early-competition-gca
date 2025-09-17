@@ -1,9 +1,6 @@
-// Example: Log a message to the console
+// Wells Fargo Project Proposal site JS
+
 console.log('Welcome to the Wells Fargo Project Proposal site!');
-
-// Try adding your own JavaScript below to interact with the page!
-
-// Feel free to experiment with different JavaScript code snippets here!
 
 // Smooth scroll for anchor links (for browsers that don't support scroll-behavior)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -34,6 +31,9 @@ if (exploreBtn && overviewSection) {
       exploreBtn.classList.add('btn-warning');
     } else {
       exploreBtn.classList.remove('btn-warning');
+    }
+  });
+}
     }
   });
 }
