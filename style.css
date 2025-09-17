@@ -1,0 +1,56 @@
+html {
+  scroll-behavior: smooth;
+/* Overlay for parallax sections */
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); /* semi-transparent black */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure content is above overlay */
+.parallax > div:not(.parallax-overlay) {
+  position: relative;
+  z-index: 2;
+}
+}
+
+/* Parallax shared styles */
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
+  position: relative;
+}
+
+/* Backgrounds for different parallax sections */
+.bg-hero {
+  background-image: url('https://images.unsplash.com/photo-1565372918364-7df5b0e7c5cf?auto=format&fit=crop&w=1350&q=80');
+}
+
+.bg-strategy {
+  background-image: url('https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1350&q=80');
+}
+
+.bg-timeline {
+  background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80');
+}
+
+/* General styling */
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+}
+
+footer {
+  font-size: 14px;
+}
